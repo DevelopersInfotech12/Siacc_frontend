@@ -1,0 +1,350 @@
+/* ═══════════════════════════════════════════════════════════════
+   animations.css
+   Import once in your root layout.tsx / _app.tsx:
+     import "@/styles/animations.css";
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ──────────────────────────────────────────
+   1. KEYFRAMES
+────────────────────────────────────────── */
+
+/* Fade + directional slides */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-24px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Scale */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+@keyframes scalePop {
+  0%   { opacity: 0; transform: scale(0.7);  }
+  70%  {             transform: scale(1.06); }
+  100% { opacity: 1; transform: scale(1);    }
+}
+
+/* Looping ambient */
+@keyframes float {
+  0%, 100% { transform: translateY(0px);   }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1);    }
+  50%       { transform: scale(1.04); }
+}
+@keyframes rotateSlow {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0);    }
+  40%       { transform: translateY(-6px); }
+  70%       { transform: translateY(-3px); }
+}
+
+/* Glows & pulses */
+@keyframes badgePulse {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(249, 115, 22, 0.5); }
+  50%       { box-shadow: 0 0 0 7px rgba(249, 115, 22, 0);   }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1;   }
+}
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(30, 136, 200, 0.2); }
+  50%       { border-color: rgba(30, 136, 200, 0.6); }
+}
+
+/* Lines & bars */
+@keyframes lineGrowH {
+  from { width: 0;    }
+  to   { width: 100%; }
+}
+@keyframes lineGrowV {
+  from { height: 0;    }
+  to   { height: 100%; }
+}
+@keyframes underlineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes sliderProgress {
+  from { width: 0;    }
+  to   { width: 100%; }
+}
+@keyframes stepConnector {
+  from { width: 0;    }
+  to   { width: 100%; }
+}
+
+/* Ticker */
+@keyframes tickerScroll {
+  from { transform: translateX(0);    }
+  to   { transform: translateX(-50%); }
+}
+
+/* Hero / image reveals */
+@keyframes imgReveal {
+  from { opacity: 0.4; transform: scale(1.06); }
+  to   { opacity: 1;   transform: scale(1);    }
+}
+@keyframes heroTextIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* Counter entrance */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(14px) scale(0.85); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+/* Shimmer skeleton */
+@keyframes shimmerSlide {
+  0%   { background-position: -600px 0; }
+  100% { background-position:  600px 0; }
+}
+
+/* Ripple ring */
+@keyframes ripple {
+  0%   { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+/* Animated gradient background */
+@keyframes gradShift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* Tag / pill slide in */
+@keyframes pillSlideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+
+
+/* ──────────────────────────────────────────
+   2. SCROLL-REVEAL UTILITIES
+   Add one of the base classes to your element,
+   then append "revealed" via IntersectionObserver
+   (use the useReveal hook below).
+────────────────────────────────────────── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity   0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-36px);
+  transition:
+    opacity   0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(36px);
+  transition:
+    opacity   0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity   0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* JS adds this class when element enters viewport */
+.revealed {
+  opacity:   1 !important;
+  transform: none !important;
+}
+
+
+/* ──────────────────────────────────────────
+   3. STAGGER DELAY HELPERS
+   Apply to direct children of a .reveal wrapper
+   when using { stagger: true } in useReveal.
+────────────────────────────────────────── */
+.d0 { transition-delay:   0ms; }
+.d1 { transition-delay:  90ms; }
+.d2 { transition-delay: 180ms; }
+.d3 { transition-delay: 270ms; }
+.d4 { transition-delay: 360ms; }
+.d5 { transition-delay: 450ms; }
+.d6 { transition-delay: 540ms; }
+.d7 { transition-delay: 630ms; }
+.d8 { transition-delay: 720ms; }
+
+
+/* ──────────────────────────────────────────
+   4. INSTANT-PLAY ANIMATION CLASSES
+   No JS required — just add the class.
+────────────────────────────────────────── */
+
+/* One-shot entrances */
+.anim-fade-up    { animation: fadeUp    0.60s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-fade-down  { animation: fadeDown  0.50s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-fade-left  { animation: fadeLeft  0.60s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-fade-right { animation: fadeRight 0.60s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-fade-in    { animation: fadeIn    0.50s ease both; }
+.anim-scale-in   { animation: scaleIn   0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-scale-pop  { animation: scalePop  0.50s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.anim-count-up   { animation: countUp   0.60s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-pill-in    { animation: pillSlideIn 0.40s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-hero-text  { animation: heroTextIn  0.42s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-img-reveal { animation: imgReveal   0.55s ease both; }
+
+/* Looping */
+.anim-float      { animation: float      3.5s ease-in-out  infinite; }
+.anim-pulse      { animation: pulse      2.4s ease-in-out  infinite; }
+.anim-rotate     { animation: rotateSlow 12s  linear       infinite; }
+.anim-glow       { animation: glowPulse  2.0s ease-in-out  infinite; }
+.anim-badge      { animation: badgePulse 2.0s ease-in-out  infinite; }
+.anim-border     { animation: borderGlow 2.5s ease-in-out  infinite; }
+.anim-grad       { background-size: 200% 200%; animation: gradShift 6s ease infinite; }
+
+/* Ticker */
+.anim-ticker     { animation: tickerScroll 44s linear infinite; }
+.anim-ticker:hover { animation-play-state: paused; }
+
+/* Hero progress bar */
+.anim-progress   { animation: sliderProgress 5.5s linear forwards; }
+
+/* Entrance animation delays */
+.anim-delay-1  { animation-delay:  80ms; }
+.anim-delay-2  { animation-delay: 160ms; }
+.anim-delay-3  { animation-delay: 240ms; }
+.anim-delay-4  { animation-delay: 320ms; }
+.anim-delay-5  { animation-delay: 400ms; }
+.anim-delay-6  { animation-delay: 480ms; }
+.anim-delay-7  { animation-delay: 560ms; }
+.anim-delay-8  { animation-delay: 640ms; }
+
+
+/* ──────────────────────────────────────────
+   5. COMPONENT-SPECIFIC HELPERS
+────────────────────────────────────────── */
+
+/* Section heading underline draw */
+.heading-line {
+  display: block;
+  height: 3px;
+  width: 44px;
+  border-radius: 99px;
+  background: #1E88C8;
+  transform-origin: left center;
+  animation: underlineGrow 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.heading-line-center { margin: 10px auto 0; }
+.heading-line-left   { margin: 10px 0 0;   }
+
+/* Shimmer skeleton loader */
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e8f0 50%, #f0f0f0 75%);
+  background-size: 600px 100%;
+  animation: shimmerSlide 1.4s infinite;
+}
+
+/* Ripple ring — place on a relative-positioned element */
+.ripple-dot { position: relative; }
+.ripple-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #1E88C8;
+  animation: ripple 1.8s ease-out infinite;
+}
+
+/* Icon wrapper — hover bounce */
+.icon-bounce:hover { animation: iconBounce 0.5s ease; }
+
+/* Floating ornament card */
+.float-card { animation: float 4s ease-in-out infinite; }
+
+/* Step connector line drawn on reveal */
+.step-line          { overflow: hidden; }
+.step-line::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: #1E88C8;
+  opacity: 0.3;
+  animation: lineGrowH 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+/* ──────────────────────────────────────────
+   6. useReveal HOOK  (paste into hooks/useReveal.js)
+   ─────────────────────────────────────────
+   Drives .reveal / .reveal-left / .reveal-right / .reveal-scale
+   by adding "revealed" when the element enters the viewport.
+
+   Usage:
+     import { useReveal } from "@/hooks/useReveal";
+     const ref = useReveal();
+     <section ref={ref} className="reveal"> … </section>
+
+   Stagger children:
+     const ref = useReveal({ stagger: true, baseDelay: 90 });
+     <div ref={ref} className="reveal">
+       <div className="d0"> … </div>   ← each child gets revealed + delay
+       <div className="d1"> … </div>
+     </div>
+
+   ─────────────────────────────────────────
+   // hooks/useReveal.js
+   "use client";
+   import { useEffect, useRef } from "react";
+
+   export function useReveal(opts = {}) {
+     const { threshold = 0.15, stagger = false, baseDelay = 90, once = true } = opts;
+     const ref = useRef(null);
+     useEffect(() => {
+       const el = ref.current;
+       if (!el) return;
+       const obs = new IntersectionObserver(([entry]) => {
+         if (!entry.isIntersecting) return;
+         if (stagger) {
+           Array.from(el.children).forEach((child, i) => {
+             child.style.transitionDelay = i * baseDelay + "ms";
+             child.classList.add("revealed");
+           });
+         } else {
+           el.classList.add("revealed");
+         }
+         if (once) obs.unobserve(el);
+       }, { threshold });
+       obs.observe(el);
+       return () => obs.disconnect();
+     }, [threshold, stagger, baseDelay, once]);
+     return ref;
+   }
+────────────────────────────────────────── */
