@@ -64,11 +64,26 @@ function useReveal(opts = {}) {
 }
 
 const ticker = [
-  "Guidelines for Implementation of Revised Standards for LED Luminaires",
-  "Guidelines for Implementation of Extended Reality Products (Augmented Reality, Virtual Reality, Mixed Reality etc.) as per IS/IEC 62368-1:2023",
-  "Guidelines for Implementation of Migration to IS/IEC 62368-1:2023",
-  "Guidelines for implementation of IS 16102 (Part 1):2026",
-  "Guidelines for verification of rated capacity for portable sealed secondary Lithium Cells and Batteries",
+  {
+    text: "Guidelines for Implementation of Revised Standards for LED Luminaires",
+    url: "https://www.crsbis.in/BIS/app_srv/tdc/gl/docs/Guidelines_for_Implementation_of_Revised_Standards_for_LED_Luminaires.pdf"
+  },
+  {
+    text: "Guidelines for Implementation of Extended Reality Products (Augmented Reality, Virtual Reality, Mixed Reality etc.) as per IS/IEC 62368-1:2023",
+    url: "https://www.crsbis.in/BIS/app_srv/tdc/gl/docs/Guidelines_for_Implementation_of_Extended_Reality_Products_(AugmentedReality_VirtualReality_MixedReality_etc).pdf"
+  },
+  {
+    text: "Guidelines for Implementation of Migration to IS/IEC 62368-1:2023",
+    url: "https://www.crsbis.in/BIS/app_srv/tdc/gl/docs/Guidelines_for_Implementation_of_Migration_to_62368_1_2023.pdf"
+  },
+  {
+    text: "Guidelines for implementation of IS 16102 (Part 1):2026",
+    url: "https://www.crsbis.in/BIS/app_srv/tdc/gl/docs/IS_16102_Part_1_guidelines.pdf"
+  },
+  {
+    text: "Guidelines for verification of rated capacity for portable sealed secondary Lithium Cells and Batteries",
+    url: "https://www.crsbis.in/BIS/app_srv/tdc/gl/docs/guidelines_for_rated_capacity.pdf"
+  },
 ];
 
 const stats = [
@@ -187,13 +202,10 @@ export default function HomeScreen() {
         <div style={{ overflow: "hidden", flex: 1 }}>
           <div className="anim-ticker" style={{ display: "inline-flex", whiteSpace: "nowrap" }}>
             {[...ticker, ...ticker].map((item, i) => (
-              <span key={i} style={{
-                fontFamily: T.sans, fontSize: 13.5, fontWeight: 500, color: "#fff",
-                padding: "0 48px", display: "inline-flex", alignItems: "center", gap: 10,
-              }}>
+              <a key={i} href={item.url} target="_blank" rel="noopener noreferrer" style={{ fontFamily: T.sans, fontSize: 13.5, fontWeight: 500, color: "#fff", padding: "0 48px", display: "inline-flex", alignItems: "center", gap: 10, textDecoration: "none", cursor: "pointer", transition: "color 0.2s" }} onMouseEnter={e => e.currentTarget.style.color = "#FDE68A"} onMouseLeave={e => e.currentTarget.style.color = "#fff"}>
                 <span style={{ color: "rgba(255,255,255,0.55)", fontSize: 9 }}>◆</span>
-                {item}
-              </span>
+                {item.text}
+              </a>
             ))}
           </div>
         </div>
@@ -343,6 +355,6 @@ export default function HomeScreen() {
       </section>
 
       <Footer />
-    </div>
+    </div >
   );
 }

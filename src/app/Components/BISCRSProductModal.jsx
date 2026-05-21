@@ -68,8 +68,10 @@ const css = `
   .m-info-item:last-child{border-right:none;}
   .m-info-label{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#718096;margin-bottom:2px;}
   .m-info-val{font-family:'Poppins','system-ui',sans-serif;font-size:12.5px;font-weight:700;color:#0a6daa;}
-  .m-tabs {display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
+  .m-tabs-wrap {display:flex;align-items:center;gap:4px;position:relative;}
+  .m-tabs {display:flex;gap:0;overflow-x:auto;scrollbar-width:none;scroll-behavior:smooth;flex:1;cursor:grab;}
   .m-tabs::-webkit-scrollbar{display:none;}
+  .m-tabs.dragging{cursor:grabbing;user-select:none;}
   .m-tab {
     display:flex;align-items:center;gap:6px;padding:10px 16px;border:none;
     background:transparent;cursor:pointer;font-family:'Poppins','system-ui',sans-serif;
@@ -78,6 +80,14 @@ const css = `
   }
   .m-tab:hover{color:#0a6daa;}
   .m-tab.active{color:#1E88C8;border-bottom-color:#1E88C8;background:rgba(30,136,200,0.04);}
+  .m-scroll-btn {
+    flex-shrink:0;width:26px;height:26px;border:none;background:#EBF5F5;
+    border-radius:50%;cursor:pointer;font-size:15px;color:#1E88C8;
+    display:flex;align-items:center;justify-content:center;
+    transition:background 0.18s,color 0.18s;line-height:1;
+  }
+  .m-scroll-btn:hover{background:#1E88C8;color:#fff;}
+  .m-scroll-btn:disabled{opacity:0.3;cursor:default;}
   .m-body {flex:1;overflow-y:auto;padding:24px;background:#FAFBFC;}
   .m-body::-webkit-scrollbar{width:5px;}
   .m-body::-webkit-scrollbar-thumb{background:#C8DFF0;border-radius:4px;}
@@ -159,7 +169,6 @@ const css = `
   }
 `;
 
-/* ── Tabs ── */
 function TabOverview({ product, catColor }) {
     return (
         <div>
@@ -544,10 +553,11 @@ function TabDomains() {
     );
 }
 
-/* ── Main Modal ── */
 export default function BISCRSProductModal({ product, onClose }) {
     const [activeTab, setActiveTab] = useState("overview");
     const bodyRef = useRef(null);
+    const tabsRef = useRef(null);
+    const dragRef = useRef({ down: false, startX: 0, scrollLeft: 0 });
 
     const handleKey = useCallback(e => { if (e.key === "Escape") onClose(); }, [onClose]);
     useEffect(() => {
@@ -558,6 +568,21 @@ export default function BISCRSProductModal({ product, onClose }) {
 
     useEffect(() => { if (bodyRef.current) bodyRef.current.scrollTop = 0; }, [activeTab]);
 
+    const onMouseDown = (e) => {
+        dragRef.current = { down: true, startX: e.pageX - tabsRef.current.offsetLeft, scrollLeft: tabsRef.current.scrollLeft };
+        tabsRef.current.classList.add("dragging");
+    };
+    const onMouseUp = () => {
+        dragRef.current.down = false;
+        tabsRef.current?.classList.remove("dragging");
+    };
+    const onMouseMove = (e) => {
+        if (!dragRef.current.down) return;
+        e.preventDefault();
+        const x = e.pageX - tabsRef.current.offsetLeft;
+        tabsRef.current.scrollLeft = dragRef.current.scrollLeft - (x - dragRef.current.startX);
+    };
+
     if (!product) return null;
     const catColor = CATEGORY_COLORS[product.category] || CATEGORY_COLORS["IT & Computing"];
 
@@ -567,7 +592,6 @@ export default function BISCRSProductModal({ product, onClose }) {
             <div className="m-overlay" onClick={e => { if (e.target === e.currentTarget) onClose(); }}>
                 <div className="m-box" role="dialog" aria-modal="true">
 
-                    {/* Fixed Header */}
                     <div className="m-header">
                         <div className="m-header-top">
                             <div style={{ width: 52, height: 52, borderRadius: 12, background: catColor.bg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 26, flexShrink: 0 }}>
@@ -586,7 +610,6 @@ export default function BISCRSProductModal({ product, onClose }) {
                             <button className="m-close" onClick={onClose} aria-label="Close">✕</button>
                         </div>
 
-                        {/* Quick info */}
                         <div className="m-info-strip">
                             {[
                                 { label: "Validity", value: product.validity },
@@ -601,17 +624,27 @@ export default function BISCRSProductModal({ product, onClose }) {
                             ))}
                         </div>
 
-                        {/* Tabs */}
-                        <div className="m-tabs">
-                            {TABS.filter(tab => tab.id !== "types" || product.types?.length).map(tab => (
-                                <button key={tab.id} className={`m-tab${activeTab === tab.id ? " active" : ""}`} onClick={() => setActiveTab(tab.id)}>
-                                    <span>{tab.icon}</span>{tab.label}
-                                </button>
-                            ))}
+                        {/* Tabs with ‹ › scroll buttons + drag */}
+                        <div className="m-tabs-wrap">
+                            <button className="m-scroll-btn" onClick={() => tabsRef.current?.scrollBy({ left: -140, behavior: "smooth" })}>‹</button>
+                            <div
+                                className="m-tabs"
+                                ref={tabsRef}
+                                onMouseDown={onMouseDown}
+                                onMouseUp={onMouseUp}
+                                onMouseLeave={onMouseUp}
+                                onMouseMove={onMouseMove}
+                            >
+                                {TABS.filter(tab => tab.id !== "types" || product.types?.length).map(tab => (
+                                    <button key={tab.id} className={`m-tab${activeTab === tab.id ? " active" : ""}`} onClick={() => setActiveTab(tab.id)}>
+                                        <span>{tab.icon}</span>{tab.label}
+                                    </button>
+                                ))}
+                            </div>
+                            <button className="m-scroll-btn" onClick={() => tabsRef.current?.scrollBy({ left: 140, behavior: "smooth" })}>›</button>
                         </div>
                     </div>
 
-                    {/* Scrollable Body */}
                     <div className="m-body" ref={bodyRef}>
                         {activeTab === "overview" && <TabOverview product={product} catColor={catColor} />}
                         {activeTab === "types" && <TabTypes product={product} />}
