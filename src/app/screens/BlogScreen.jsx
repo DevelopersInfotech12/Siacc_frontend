@@ -5,7 +5,8 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import "../animations.css";
 
-const API_URL = "http://localhost:5000/api";
+// const API_URL = "http://localhost:5000/api";
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const T = {
   teal: "#1E88C8", titleblue: "#0a6daa", tealDark: "#074D4D",
