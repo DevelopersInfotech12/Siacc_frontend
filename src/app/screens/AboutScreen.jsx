@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from 'next/image';
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "../Components/Navbar";
@@ -151,7 +152,7 @@ export default function AboutScreen() {
       {/* ══ HERO ══ */}
       <section style={{ position: "relative", overflow: "hidden", borderBottom: `1px solid ${T.border}`, minHeight: 420, display: "flex", flexDirection: "column", justifyContent: "center" }}>
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 4, background: `linear-gradient(to bottom, ${T.orange}, ${T.teal})`, zIndex: 3 }} />
-        <img src="/images/aboutbanner3.jpg" alt="SIACC India" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", zIndex: 0 }} />
+        <Image src="/images/aboutbanner3.jpg" alt="SIACC India" fill style={{ objectFit: "cover", objectPosition: "center 40%" }} />
         <div style={{ position: "absolute", inset: 0, zIndex: 1, background: "linear-gradient(to right,rgba(7,18,28,0.88) 0%,rgba(7,18,28,0.60) 50%,rgba(7,18,28,0.10) 100%)" }} />
         <div style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto", width: "100%", padding: "clamp(48px,7vw,88px) clamp(20px,4vw,60px)" }}>
           <div ref={heroLeftRef} className="reveal-left">
@@ -216,7 +217,7 @@ export default function AboutScreen() {
               </p>
 
               <div style={{ position: "relative", borderRadius: 10, overflow: "hidden", height: 220 }}>
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=80&fit=crop" alt="SIACC team" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }} />
+                <Image src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=80&fit=crop" alt="SIACC team" fill style={{ objectFit: "cover", objectPosition: "center 40%" }} unoptimized />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right,rgba(14,128,128,0.88) 0%,rgba(30,136,200,0.60) 55%,rgba(235,245,251,0.25) 100%)" }} />
                 <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", padding: "0 28px" }}>
                   <div>
@@ -275,7 +276,7 @@ export default function AboutScreen() {
         <div className="inner">
           <div className="story-grid">
             <div className="reveal-left" ref={storyImgRef} style={{ position: "relative" }}>
-              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=80&fit=crop" alt="Compliance experts" style={{ width: "100%", borderRadius: 10, height: 460, objectFit: "cover", boxShadow: "0 24px 64px rgba(0,0,0,0.10)" }} />
+              <Image src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=80&fit=crop" alt="Compliance experts" height={460} width={900} style={{ width: "100%", borderRadius: 10, height: 460, objectFit: "cover", boxShadow: "0 24px 64px rgba(0,0,0,0.10)" }} unoptimized />
               <div className="float-card" style={{ position: "absolute", bottom: -16, right: -12, background: T.white, borderRadius: 8, padding: "20px 26px", boxShadow: "0 16px 48px rgba(0,0,0,0.11)", border: `1px solid ${T.tealLight}` }}>
                 <div style={{ fontFamily: T.poppins, fontSize: 36, color: T.teal, fontWeight: 700, lineHeight: 1 }}>10K+</div>
                 <div style={{ fontFamily: T.sans, fontSize: 11.5, color: T.muted, marginTop: 4 }}>Happy Clients Served</div>
@@ -336,7 +337,7 @@ export default function AboutScreen() {
 
       {/* ══ TIMELINE ══ */}
       <section style={{ position: "relative", overflow: "hidden" }} className="sec">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80&fit=crop" alt="Company growth" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+        <Image src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80&fit=crop" alt="Company growth" fill style={{ objectFit: "cover" }} unoptimized />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(13,27,42,0.95) 0%, rgba(14,128,128,0.88) 100%)" }} />
         <div style={{ maxWidth: 900, margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div style={{ textAlign: "center", marginBottom: 52 }} className="reveal" ref={useReveal({ threshold: 0.1 })}>

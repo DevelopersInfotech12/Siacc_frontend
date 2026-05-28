@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef , useState} from "react";
+import Image from 'next/image';
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import "../animations.css";
@@ -188,7 +189,7 @@ export default function BISScreen() {
         display: "flex", flexDirection: "column", justifyContent: "center",
       }}>
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 4, background: `linear-gradient(to bottom,${T.orange},${T.teal})`, zIndex: 3 }} />
-        <img src="/images/bis2.png" alt="BIS Certification" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", zIndex: 0 }} />
+        <Image src="/images/bis2.png" alt="BIS Certification" fill style={{ objectFit: "cover", objectPosition: "center 40%" }} />
         <div style={{ position: "absolute", inset: 0, zIndex: 1, background: "linear-gradient(to right,rgba(7,18,28,0.88) 0%,rgba(7,18,28,0.60) 50%,rgba(7,18,28,0.10) 100%)" }} />
         <div style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto", width: "100%", padding: "clamp(48px,7vw,88px) clamp(20px,4vw,60px)" }}>
           <div ref={heroLeftRef} className="reveal-left">
@@ -254,7 +255,7 @@ export default function BISScreen() {
                 Our BIS specialists coordinate with BIS-recognized labs, prepare your complete application, manage factory inspections, and follow up until your license is in hand.
               </p>
               <div style={{ position: "relative", borderRadius: 10, overflow: "hidden", marginBottom: 32, height: 220 }}>
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=80&fit=crop" alt="BIS compliance team" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }} />
+                <Image src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=80&fit=crop" alt="BIS compliance team" fill style={{ objectFit: "cover", objectPosition: "center 40%" }} unoptimized />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right,rgba(14,128,128,0.78) 0%,rgba(30,136,200,0.45) 60%,rgba(235,245,251,0.15) 100%)" }} />
                 <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", padding: "0 28px" }}>
                   <div>
@@ -344,7 +345,7 @@ export default function BISScreen() {
             <h2 style={{ fontFamily: T.poppins, fontSize: "clamp(2rem,3.2vw,2.9rem)", color: T.titleblue, fontWeight: 700, letterSpacing: "-0.01em", marginBottom: 14 }}>BIS Certification Process</h2>
           </div>
           <div className="reveal-scale" ref={bannerRef} style={{ position: "relative", borderRadius: 10, overflow: "hidden", marginBottom: 36, height: 170 }}>
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=80&fit=crop" alt="process" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }} />
+            <Image src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=80&fit=crop" alt="process" fill style={{ objectFit: "cover", objectPosition: "center 40%" }} unoptimized />
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right,rgba(14,128,128,0.88) 0%,rgba(30,136,200,0.60) 55%,rgba(235,245,251,0.25) 100%)" }} />
             <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", padding: "0 40px" }}>
               <div>
@@ -370,7 +371,7 @@ export default function BISScreen() {
 
       {/* ══ DOCUMENTS ══ */}
       <section style={{ position: "relative", overflow: "hidden" }} className="sec">
-        <img src="https://images.unsplash.com/photo-1568219557405-376e23e4f7cf?w=1600&q=80&fit=crop" alt="docs" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+        <Image src="https://images.unsplash.com/photo-1568219557405-376e23e4f7cf?w=1600&q=80&fit=crop" alt="docs" fill style={{ objectFit: "cover" }} unoptimized />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(13,27,42,0.96) 0%,rgba(14,128,128,0.88) 100%)" }} />
         <div style={{ maxWidth: 900, margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div style={{ textAlign: "center", marginBottom: 48 }} className="reveal" ref={docsTtlRef}>
@@ -405,15 +406,7 @@ export default function BISScreen() {
 
    {/* Left — image only, no overlay, no content */}
 <div style={{ position: "relative", minHeight: 250, overflow: "hidden" }}>
-  <img
-    src="/finalimages/faq10.jpg"
-    alt="BIS FAQ"
-    style={{
-      position: "absolute", inset: 0,
-      width: "100%", height: "100%",
-      objectFit: "cover", objectPosition: "center 30%",
-    }}
-  />
+  <Image src="/finalimages/faq10.jpg" alt="BIS FAQ" fill style={{ objectFit: "cover", objectPosition: "center 30%" }} />
 </div>
 
       {/* Right — accordion */}

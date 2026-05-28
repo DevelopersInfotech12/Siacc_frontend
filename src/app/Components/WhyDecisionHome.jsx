@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from 'next/image';
 
 const T = {
   teal: "#1E88C8",
@@ -313,11 +314,7 @@ export default function WhyDecisionHome() {
 
         {/* Left image */}
         <div className="wdh-img-side">
-          <img
-            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=85&fit=crop"
-            alt="Certification experts"
-            className="wdh-img-main"
-          />
+          <Image src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=85&fit=crop" alt="Certification experts" className="wdh-img-main" unoptimized />
           <div className="wdh-img-grad" />
 
           <div className="wdh-img-badge">
@@ -329,7 +326,7 @@ export default function WhyDecisionHome() {
           </div>
 
           <div className="wdh-img-float">
-            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=300&q=80&fit=crop" alt="Team" />
+            <Image src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=300&q=80&fit=crop" alt="Team" unoptimized />
           </div>
 
           <div className="wdh-year-pill">Est. 2010 · 15+ Years of Excellence</div>

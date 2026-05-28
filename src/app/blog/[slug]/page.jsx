@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from 'next/image';
 import { useRouter, useParams } from "next/navigation";
 import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
@@ -72,7 +73,7 @@ function ContentBlock({ block }) {
       </div>
     );
   if (block.type === "img")
-    return <img src={block.src} alt={block.alt || ""} style={{ borderRadius: 8, margin: "20px 0", width: "100%" }} />;
+    return <Image src={block.src} alt={block.alt || ""} style={{ borderRadius: 8, margin: "20px 0", width: "100%" }} unoptimized />;
   return null;
 }
 
@@ -250,11 +251,7 @@ export default function BlogDetailPage() {
       {/* HERO */}
       <section style={{ position: "relative", overflow: "hidden", borderBottom: `1px solid ${T.border}`, minHeight: 420, display: "flex", flexDirection: "column", justifyContent: "center" }}>
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 4, background: `linear-gradient(to bottom, ${T.orange}, ${T.teal})`, zIndex: 3 }} />
-        <img
-          src={blog.heroImg || blog.img}
-          alt={blog.title}
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", zIndex: 0 }}
-        />
+        <Image src={blog.heroImg || blog.img} alt={blog.title} fill style={{ objectFit: "cover", objectPosition: "center 30%" }} unoptimized />
         <div className="hero-overlay" style={{ position: "absolute", inset: 0, zIndex: 1, background: "linear-gradient(to right, rgba(7,18,28,0.88) 0%, rgba(7,18,28,0.72) 60%, rgba(7,18,28,0.30) 100%)" }} />
         <div style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto", width: "100%", padding: "clamp(48px,7vw,88px) clamp(20px,4vw,60px)" }}>
           <div ref={heroRef} className="revealed reveal-left">
@@ -423,12 +420,12 @@ export default function BlogDetailPage() {
                 >
                   {/* Image */}
                   <div style={{ height: 172, overflow: "hidden", position: "relative" }}>
-                    <img
+                    <Image
                       src={article.img}
                       alt={article.title}
-                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.4s" }}
-                      onMouseEnter={e => e.currentTarget.style.transform = "scale(1.06)"}
-                      onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      unoptimized
                     />
                     {/* Gradient overlay */}
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(7,18,28,0.45) 0%, transparent 55%)" }} />
@@ -470,7 +467,7 @@ export default function BlogDetailPage() {
                     }}>
                       {article.title}
                     </h3>
-                  
+
 
                     {/* Read more row */}
                     {article.slug && (

@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Image from 'next/image';
 import { useRouter } from "next/navigation";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
@@ -147,7 +148,7 @@ export default function BlogScreen() {
       {/* HERO */}
       <section style={{ position: "relative", overflow: "hidden", borderBottom: `1px solid ${T.border}`, minHeight: 420, display: "flex", flexDirection: "column", justifyContent: "center" }}>
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 4, background: `linear-gradient(to bottom,${T.orange},${T.teal})`, zIndex: 3 }} />
-        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=85&fit=crop" alt="Blog background" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", zIndex: 0 }} />
+        <Image src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=85&fit=crop" alt="Blog background" fill style={{ objectFit: "cover", objectPosition: "center 30%" }} unoptimized />
         <div style={{ position: "absolute", inset: 0, zIndex: 1, background: "linear-gradient(to right,rgba(7,18,28,0.88) 0%,rgba(7,18,28,0.60) 50%,rgba(7,18,28,0.10) 100%)" }} />
         <div style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto", width: "100%", padding: "clamp(48px,7vw,88px) clamp(20px,4vw,60px)" }}>
           <div ref={heroLeftRef} className="reveal-left">
@@ -201,7 +202,7 @@ export default function BlogScreen() {
               {activeCategory === "All" && featured && (
                 <div className="featured-card" ref={featuredRef} onClick={() => router.push(`/blog/${featured.slug}`)}>
                   <div className="featured-img" style={{ position: "relative", minHeight: 240 }}>
-                    <img src={featured.img} alt={featured.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                    <Image src={featured.img} alt={featured.title} fill style={{ objectFit: "cover" }} unoptimized />
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right,transparent,rgba(13,27,42,0.3))" }} />
                     <div style={{ position: "absolute", top: 16, left: 16 }}>
                       <span style={{ fontSize: 10, fontWeight: 800, backgroundColor: T.amber, color: "#fff", padding: "4px 14px", borderRadius: 3, letterSpacing: "0.06em", fontFamily: T.poppins }}>FEATURED</span>
@@ -249,7 +250,7 @@ export default function BlogScreen() {
                     <div key={post.slug} className={`post-card revealed d${Math.min(i, 7)}`}
                       onClick={() => post.slug && router.push(`/blog/${post.slug}`)}>
                       <div style={{ position: "relative", height: 180, overflow: "hidden" }}>
-                        <img src={post.img} alt={post.title} className="post-img" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                        <Image src={post.img} alt={post.title} fill style={{ objectFit: "cover" }} className="post-img" unoptimized />
                         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg,rgba(235,245,251,0.18) 0%,rgba(235,245,251,0.42) 100%)", pointerEvents: "none" }} />
                         <div style={{ position: "absolute", top: 14, left: 14 }}>
                           <span style={{ fontSize: 10, fontWeight: 700, backgroundColor: tc.bg, color: tc.text, padding: "4px 12px", borderRadius: 3, fontFamily: T.poppins, letterSpacing: "0.06em" }}>{post.tag}</span>

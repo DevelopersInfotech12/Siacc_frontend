@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Image from 'next/image';
 import { useRouter } from "next/navigation";
 
 const T = {
@@ -301,12 +302,11 @@ export default function ServicesHero({ services = [] }) {
 
         {/* ══ MOBILE-ONLY image block (normal flow, always has height) ══ */}
         <div className="sh-right-mobile">
-          <img
-            key={`mob-${animKey}`}
-            src={current.img}
-            alt={current.title}
-            className="sh-anim"
-          />
+          <Image src={current.img}
+  alt={current.title}
+  className="sh-anim"
+  unoptimized
+/>
           <div className="sh-overlay" />
           <div className="sh-counter-badge">
             {String(safeActive + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
@@ -403,12 +403,11 @@ export default function ServicesHero({ services = [] }) {
 
         {/* ══ DESKTOP-ONLY image column (absolute fill, hidden on mobile) ══ */}
         <div className="sh-right-desktop">
-          <img
-            key={`desk-${animKey}`}
-            src={current.img}
-            alt={current.title}
-            className="sh-anim"
-          />
+          <Image src={current.img}
+  alt={current.title}
+  className="sh-anim"
+  unoptimized
+/>
           <div className="sh-overlay" />
           <div className="sh-counter-badge">
             {String(safeActive + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}

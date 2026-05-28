@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useState, useEffect, useCallback } from "react";
+import Image from 'next/image';
 import { useRouter } from "next/navigation";
 
 const T = {
@@ -193,7 +194,7 @@ export default function OurServicesHome() {
       onClick={() => router.push(s.href)}
     >
       <div className="oss-card-img-wrap">
-        <img src={s.img} alt={s.title} className="oss-card-img" loading="lazy" />
+        <Image src={s.img} alt={s.title} className="oss-card-img" loading="lazy" unoptimized />
         <div className="oss-img-overlay" />
         <div className="oss-card-shine" />
         <div className="oss-tag" style={{ background: `${s.accent}cc` }}>{s.tag}</div>

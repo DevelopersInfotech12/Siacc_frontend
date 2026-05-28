@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Image from 'next/image';
 import { Input, Textarea, Select, Btn, Card } from "./AdminUI";
 import SectionEditor from "./SectionEditor";
 import JsonImportModal from "./JsonImportModal";
@@ -308,7 +309,7 @@ export default function BlogEditor({ editId, onBack, toast }) {
           <div>
             <Card>
               <h3 style={{ fontFamily: C.poppins, fontSize: 13, margin: "0 0 12px", color: C.text }}>🖼 Listing Image</h3>
-              {form.img && <img src={form.img} alt="" style={{ width: "100%", height: 140, objectFit: "cover", borderRadius: 8, marginBottom: 10 }} />}
+              {form.img && <Image src={form.img} alt="" height={140} width={900} style={{ width: "100%", height: 140, objectFit: "cover", borderRadius: 8, marginBottom: 10 }} unoptimized />}
               <Input label="Image URL" value={form.img} onChange={(e) => set("img", e.target.value)} placeholder="https://..." />
               <input ref={fileRef} type="file" accept="image/*" style={{ display: "none" }} onChange={(e) => handleImg(e, "img")} />
               <Btn variant="ghost" onClick={() => fileRef.current?.click()} loading={imgUploading} style={{ width: "100%", justifyContent: "center", fontSize: 12 }}>📤 Upload Image</Btn>
@@ -316,7 +317,7 @@ export default function BlogEditor({ editId, onBack, toast }) {
 
             <Card style={{ marginTop: 12 }}>
               <h3 style={{ fontFamily: C.poppins, fontSize: 13, margin: "0 0 12px", color: C.text }}>🦸 Hero Image</h3>
-              {form.heroImg && <img src={form.heroImg} alt="" style={{ width: "100%", height: 120, objectFit: "cover", borderRadius: 8, marginBottom: 10 }} />}
+              {form.heroImg && <Image src={form.heroImg} alt="" height={120} width={900} style={{ width: "100%", height: 120, objectFit: "cover", borderRadius: 8, marginBottom: 10 }} unoptimized />}
               <Input label="Hero Image URL" value={form.heroImg} onChange={(e) => set("heroImg", e.target.value)} placeholder="https://... or /finalimages/..." />
               <input ref={heroFileRef} type="file" accept="image/*" style={{ display: "none" }} onChange={(e) => handleImg(e, "heroImg")} />
               <Btn variant="ghost" onClick={() => heroFileRef.current?.click()} loading={imgUploading} style={{ width: "100%", justifyContent: "center", fontSize: 12 }}>📤 Upload Hero</Btn>
@@ -399,7 +400,7 @@ export default function BlogEditor({ editId, onBack, toast }) {
             <Textarea label="OG Description" value={form.seo?.ogDescription || ""} onChange={(e) => setSeo("ogDescription", e.target.value)} placeholder="Description shown on social share" style={{ minHeight: 80 }} />
             <Input label="OG Image URL" value={form.seo?.ogImage || ""} onChange={(e) => setSeo("ogImage", e.target.value)} placeholder="https://... (1200×630 recommended)" />
             {form.seo?.ogImage && (
-              <img src={form.seo.ogImage} alt="" style={{ width: "100%", height: 120, objectFit: "cover", borderRadius: 8, marginBottom: 14 }} />
+              <Image src={form.seo.ogImage} alt="" height={120} width={900} style={{ width: "100%", height: 120, objectFit: "cover", borderRadius: 8, marginBottom: 14 }} unoptimized />
             )}
             {/* Social preview */}
             <div style={{ background: C.bg, borderRadius: 10, overflow: "hidden", border: `1px solid ${C.border}` }}>

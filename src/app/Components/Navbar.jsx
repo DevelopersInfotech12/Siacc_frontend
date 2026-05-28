@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Image from 'next/image';
 import { useRouter } from "next/navigation";
 import { ChevronDown, Menu, X, Instagram, Linkedin, Facebook, Sparkles } from "lucide-react";
 
@@ -180,8 +181,8 @@ export default function Navbar() {
 
           {/* Logo */}
           <button onClick={() => go("/")} style={{ display: "flex", alignItems: "center", gap: 0, background: "none", border: "none", cursor: "pointer", flexShrink: 0, padding: 0 }}>
-            <img src="/finalimages/starlogo.png" alt="SIACC Logo" style={{ height: 50, width: "auto", objectFit: "contain", display: "block", marginRight: -100 }} />
-            <img src="/finalimages/starlogotitle.png" alt="Star India Accreditation" style={{ height: 20, width: "auto", objectFit: "contain", display: "block", marginLeft: 0 }} />
+            <Image src="/finalimages/starlogo.png" alt="SIACC Logo" height={50} width={900} style={{ height: 50, width: "auto", objectFit: "contain", display: "block", marginRight: -100 }} />
+            <Image src="/finalimages/starlogotitle.png" alt="Star India Accreditation" height={20} width={900} style={{ height: 20, width: "auto", objectFit: "contain", display: "block", marginLeft: 0 }} />
           </button>
 
           {/* Desktop nav links */}

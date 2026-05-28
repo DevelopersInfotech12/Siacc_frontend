@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import Image from 'next/image';
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 
@@ -343,11 +344,7 @@ export default function ServicesScreen() {
 
       {/* ── HERO ── */}
       <section className="hero-section">
-        <img
-          src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1800&q=85&fit=crop"
-          alt="Compliance services India"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 35%" }}
-        />
+        <Image src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1800&q=85&fit=crop" alt="Compliance services India" fill style={{ objectFit: "cover", objectPosition: "center 35%" }} unoptimized />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(12,35,64,0.90) 55%, rgba(12,35,64,0.55) 100%)" }} />
 
         <div className="hero-inner">
@@ -471,8 +468,7 @@ export default function ServicesScreen() {
           </div>
 
           <div className="process-banner">
-            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=80&fit=crop" alt="Process"
-              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 35%" }} />
+            <Image src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=80&fit=crop" alt="Process" fill style={{ objectFit: "cover", objectPosition: "center 35%" }} unoptimized />
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(12,35,64,0.88) 0%, rgba(12,35,64,0.4) 60%, transparent 100%)" }} />
             <div className="process-banner-text">
               <div>
@@ -498,8 +494,7 @@ export default function ServicesScreen() {
 
       {/* ── CTA ── */}
       <section style={{ position: "relative", padding: "80px 24px", overflow: "hidden" }}>
-        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&q=80&fit=crop" alt="CTA"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+        <Image src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&q=80&fit=crop" alt="CTA" fill style={{ objectFit: "cover" }} unoptimized />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(249,115,22,0.93) 0%, rgba(234,88,12,0.88) 100%)" }} />
         <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
           <h2 style={{ fontFamily: C.serif, fontSize: "clamp(1.5rem,3vw,2.6rem)", color: "#fff", marginBottom: 16, fontWeight: 800 }}>Not Sure Which Certification You Need?</h2>

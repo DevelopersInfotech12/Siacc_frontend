@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from 'next/image';
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
@@ -573,12 +574,12 @@ export default function AdminBlogFormScreen({ blogId }) {
                     </div>
                     {form[field] && (
                       <div style={{ marginTop: 8, width: 120, height: 72, borderRadius: 8, overflow: "hidden", border: `1px solid ${T.border}`, background: "#f5f5f5" }}>
-                        <img
-                          src={form[field]}
-                          alt="preview"
-                          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                          onError={e => { e.target.style.display = "none"; }}
-                        />
+                        <Image src={form[field]}
+  alt="preview"
+  fill
+  style={{ objectFit: "cover" }}
+  unoptimized
+/>
                       </div>
                     )}
                   </div>

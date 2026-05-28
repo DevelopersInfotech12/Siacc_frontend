@@ -1,5 +1,6 @@
 "use client";
 import Navbar from "@/app/Components/Navbar";
+import Image from 'next/image';
 import { useEffect, useRef, useState } from "react";
 
 // ── Change this to your live domain when deploying ───────────
@@ -158,7 +159,7 @@ export default function QRGeneratePage() {
                                     background: "#fff", borderRadius: 12,
                                 }}>Generating QR…</div>
                             )}
-                            <img
+                            <Image
                                 ref={imgRef}
                                 src={qrSrc}
                                 alt="SIACC Contact QR Code"
@@ -171,6 +172,7 @@ export default function QRGeneratePage() {
                                     opacity: imgReady ? 1 : 0,
                                     transition: "opacity 0.3s",
                                 }}
+                                unoptimized
                             />
                         </div>
                     </div>

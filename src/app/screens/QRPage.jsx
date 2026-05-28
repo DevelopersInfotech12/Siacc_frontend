@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from 'next/image';
 
 const T = {
   teal:"#1E88C8",tealDark:"#074D4D",tealMid:"#0E8080",
@@ -153,7 +154,7 @@ export default function QRPage() {
             <span className="corner tl"/><span className="corner tr"/>
             <span className="corner bl"/><span className="corner br"/>
             <div className="pulse-ring"/>
-            <img src={QR_IMG} alt="Scan to leave a review" />
+            <Image src={QR_IMG} alt="Scan to leave a review" unoptimized />
           </div>
         </div>
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image';
 import { Phone, Mail, MapPin } from "lucide-react";
 
 const iconStyle = { width: 14, height: 14, flexShrink: 0, color: "rgba(255,255,255,0.60)" };
@@ -153,28 +154,30 @@ export default function Footer() {
                 padding: 0,
               }}
             >
-              <img
-                src="/finalimages/starlogo.png"
-                alt="SIACC Logo"
-                style={{
+              <Image src="/finalimages/starlogo.png"
+  alt="SIACC Logo"
+  height={50}
+  width={900}
+  style={{
                   height: 50,
                   width: "auto",
                   objectFit: "contain",
                   display: "block",
                   marginRight: -100,   // ← pulls title closer, adjust this value
                 }}
-              />
-              <img
-                src="/finalimages/starlogotitle.png"
-                alt="Star India Accreditation"
-                style={{
+/>
+              <Image src="/finalimages/starlogotitle.png"
+  alt="Star India Accreditation"
+  height={20}
+  width={900}
+  style={{
                   height: 20,
                   width: "auto",
                   objectFit: "contain",
                   display: "block",
                   marginLeft: 0,
                 }}
-              />
+/>
             </button>
           </div>
           <p style={{ fontFamily: T.sans, fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.8, marginBottom: 24, maxWidth: 260 }}>

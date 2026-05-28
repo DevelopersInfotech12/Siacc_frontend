@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import Image from 'next/image';
 import { useEffect, useRef, useState } from "react";
 
 /* ── Brand tokens (exact from your codebase) ── */
@@ -148,17 +149,12 @@ function SmallCard({ post, onClick }) {
           position: "relative",
         }}
       >
-        <img
-          src={post.image}
-          alt={post.title}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            transition: "transform 0.4s",
-            transform: hovered ? "scale(1.08)" : "scale(1)",
-          }}
-        />
+        <Image src={post.image}
+  alt={post.title}
+  fill
+  style={{ objectFit: "cover" }}
+  unoptimized
+/>
       </div>
 
       {/* Text */}
@@ -425,19 +421,13 @@ export default function BlogHome() {
             >
               {/* Image */}
               <div style={{ position: "relative", height: 280, overflow: "hidden", flexShrink: 0 }}>
-                <img
-                  src={featured.image}
-                  alt={featured.title}
-                  className="bh-feat-img"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "center 40%",
-                    transform: featHovered ? "scale(1.04)" : "scale(1)",
-                    transition: "transform 0.5s ease",
-                  }}
-                />
+                <Image src={featured.image}
+  alt={featured.title}
+  fill
+  style={{ objectFit: "cover", objectPosition: "center 40%" }}
+  className="bh-feat-img"
+  unoptimized
+/>
                 {/* Gradient overlay at bottom */}
                 <div
                   style={{

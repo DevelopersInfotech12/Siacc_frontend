@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Image from 'next/image';
 import { useRouter } from "next/navigation";
 
 const T = {
@@ -341,18 +342,12 @@ export default function HeroSlider() {
           minHeight: isMobile ? `${IMG_H}px` : "400px",
           lineHeight: 0,
         }}>
-          <img
-            key={active}
-            src={s.img}
-            alt={s.title}
-            style={{
-              position: "absolute", inset: 0,
-              width: "100%", height: "100%",
-              objectFit: "cover", objectPosition: "center",
-              opacity: fading ? 0 : 1,
-              transition: "opacity 0.45s ease",
-            }}
-          />
+          <Image src={s.img}
+  alt={s.title}
+  fill
+  style={{ objectFit: "cover", objectPosition: "center" }}
+  unoptimized
+/>
           <div className="hs2-img-overlay" />
           <div className="hs2-counter">
             {String(active + 1).padStart(2, "0")}

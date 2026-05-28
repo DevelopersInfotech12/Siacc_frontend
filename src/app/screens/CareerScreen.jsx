@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Image from 'next/image';
 import { useRouter } from "next/navigation";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
@@ -186,7 +187,7 @@ export default function CareerScreen() {
         display: "flex", flexDirection: "column", justifyContent: "center",
       }}>
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 4, background: `linear-gradient(to bottom,${T.orange},${T.teal})`, zIndex: 3 }} />
-        <img src="/images/career.jpg" alt="Careers background" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", zIndex: 0 }} />
+        <Image src="/images/career.jpg" alt="Careers background" fill style={{ objectFit: "cover", objectPosition: "center 40%" }} />
         <div style={{ position: "absolute", inset: 0, zIndex: 1, background: "linear-gradient(to right, rgba(7,18,28,0.88) 0%, rgba(7,18,28,0.60) 50%, rgba(7,18,28,0.10) 100%)" }} />
 
         <div style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto", width: "100%", padding: "clamp(48px,7vw,88px) clamp(20px,4vw,60px)" }}>
@@ -235,7 +236,7 @@ export default function CareerScreen() {
         <div className="inner">
           <div className="about-grid">
             <div className="reveal-left" ref={lifeImgRef} style={{ position: "relative" }}>
-              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80&fit=crop" alt="Team collaborating" style={{ width: "100%", borderRadius: 10, height: "clamp(280px,42vw,440px)", objectFit: "cover", boxShadow: "0 24px 64px rgba(0,0,0,0.09)" }} />
+              <Image src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80&fit=crop" alt="Team collaborating" style={{ width: "100%", borderRadius: 10, height: "clamp(280px,42vw,440px)", objectFit: "cover", boxShadow: "0 24px 64px rgba(0,0,0,0.09)" }} unoptimized />
               <div style={{ position: "absolute", bottom: -16, right: -12, background: T.white, borderRadius: 8, padding: "20px 26px", boxShadow: "0 16px 48px rgba(0,0,0,0.11)", border: `1px solid ${T.tealLight}` }}>
                 <div style={{ fontFamily: T.poppins, fontSize: 36, color: T.teal, fontWeight: 700, lineHeight: 1 }}>100+</div>
                 <div style={{ fontFamily: T.poppins, fontSize: 12, color: T.muted, marginTop: 4 }}>Experts on the Team</div>
@@ -276,7 +277,7 @@ export default function CareerScreen() {
       <section className="sec" style={{ background: T.white }}>
         <div className="inner">
           <div className="reveal perks-banner" ref={perksBannerRef}>
-            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1400&q=80&fit=crop" alt="Office culture" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%" }} />
+            <Image src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1400&q=80&fit=crop" alt="Office culture" fill style={{ objectFit: "cover", objectPosition: "center 50%" }} unoptimized />
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(14,128,128,0.82) 0%, rgba(30,136,200,0.55) 55%, rgba(235,245,251,0.30) 100%)" }} />
             <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", padding: "0 36px" }}>
               <div>

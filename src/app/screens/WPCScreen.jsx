@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from 'next/image';
 import { useRouter } from "next/navigation";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
@@ -361,7 +362,7 @@ export default function WPCScreen() {
       {/* ══ HERO ══ */}
       <section style={{ position: "relative", overflow: "hidden", borderBottom: `1px solid ${T.border}`, minHeight: 420, display: "flex", flexDirection: "column", justifyContent: "center" }}>
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 4, background: `linear-gradient(to bottom,${T.orange},${T.teal})`, zIndex: 3 }} />
-        <img src="/finalimages/siaccwpc.png" alt="WPC Approval" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", zIndex: 0 }} />
+        <Image src="/finalimages/siaccwpc.png" alt="WPC Approval" fill style={{ objectFit: "cover", objectPosition: "center 40%" }} />
         <div style={{ position: "absolute", inset: 0, zIndex: 1, background: "linear-gradient(to right,rgba(7,18,28,0.88) 0%,rgba(7,18,28,0.60) 50%,rgba(7,18,28,0.10) 100%)" }} />
         <div style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto", width: "100%", padding: "clamp(48px,7vw,88px) clamp(20px,4vw,60px)" }}>
           <div ref={heroLeftRef} className="reveal-left">
@@ -432,7 +433,7 @@ export default function WPCScreen() {
                   onMouseLeave={e => { e.currentTarget.style.borderColor = T.border; e.currentTarget.style.color = T.slate; }}>Check Applicability →</button>
               </div>
               <div style={{ position: "relative", borderRadius: 10, overflow: "hidden", height: 220 }}>
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=80&fit=crop" alt="WPC compliance team" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }} />
+                <Image src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=80&fit=crop" alt="WPC compliance team" fill style={{ objectFit: "cover", objectPosition: "center 40%" }} unoptimized />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right,rgba(14,128,128,0.78) 0%,rgba(30,136,200,0.45) 60%,rgba(235,245,251,0.15) 100%)" }} />
                 <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", padding: "0 28px" }}>
                   <div>
@@ -630,7 +631,7 @@ export default function WPCScreen() {
           SECTION 3 — DOCUMENTS REQUIRED FOR WPC-ETA APPROVAL
       ══════════════════════════════════════════════════════════════════ */}
       <section style={{ position: "relative", overflow: "hidden" }} className="sec">
-        <img src="https://images.unsplash.com/photo-1568219557405-376e23e4f7cf?w=1600&q=80&fit=crop" alt="documents" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+        <Image src="https://images.unsplash.com/photo-1568219557405-376e23e4f7cf?w=1600&q=80&fit=crop" alt="documents" fill style={{ objectFit: "cover" }} unoptimized />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(13,27,42,0.96) 0%,rgba(14,128,128,0.88) 100%)" }} />
         <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div style={{ textAlign: "center", marginBottom: 52 }} className="reveal" ref={crsDocsTtlRef}>
@@ -804,7 +805,7 @@ export default function WPCScreen() {
         <div className="inner">
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", borderRadius: 14, overflow: "hidden", border: `1px solid ${T.border}`, minHeight: 440 }} className="faq-grid">
             <div style={{ position: "relative", minHeight: 250, overflow: "hidden" }}>
-              <img src="/finalimages/faq10.jpg" alt="WPC FAQ" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }} />
+              <Image src="/finalimages/faq10.jpg" alt="WPC FAQ" fill style={{ objectFit: "cover", objectPosition: "center 30%" }} />
             </div>
             <div style={{ background: T.white, padding: "28px 24px", borderLeft: `1px solid ${T.border}` }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>

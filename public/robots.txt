@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.siacc.co.in
+
+# Sitemaps
+Sitemap: https://www.siacc.co.in/sitemap.xml

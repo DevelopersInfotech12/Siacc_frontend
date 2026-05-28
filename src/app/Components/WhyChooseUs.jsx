@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
+import Image from 'next/image';
 
 const T = {
   teal: "#1E88C8",
@@ -367,10 +368,10 @@ export default function WhyChooseUs() {
 
         {/* Left: image with overlaid stats */}
         <div className="wcu-img-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=85&fit=crop"
-            alt="SIACC team"
-          />
+          <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=85&fit=crop"
+  alt="SIACC team"
+  unoptimized
+/>
           <div className="wcu-img-overlay" />
           <div className="wcu-ribbon">The SIACC Difference</div>
           <div className="wcu-img-stats">
