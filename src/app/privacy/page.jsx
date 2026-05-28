@@ -1,6 +1,8 @@
 "use client";
-import CareerScreen from "../screens/CareerScreen";
+import dynamic from "next/dynamic";
+
+const PrivacyScreen = dynamic(() => import("../screens/PrivacyScreen"), { ssr: false });
 
 export default function Page() {
-  return <CareerScreen/>
+  return <PrivacyScreen />;
 }

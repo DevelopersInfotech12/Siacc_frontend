@@ -1,6 +1,8 @@
 "use client";
-import EPRScreen from "../screens/EPRScreen";
+import dynamic from "next/dynamic";
+
+const EPRScreen = dynamic(() => import("../screens/EPRScreen"), { ssr: false });
 
 export default function Page() {
-  return <EPRScreen/>
+  return <EPRScreen />;
 }

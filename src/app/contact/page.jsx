@@ -1,7 +1,8 @@
-"use client"
+"use client";
+import dynamic from "next/dynamic";
 
-import ContactScreen from "../screens/ContactScreen"
+const ContactScreen = dynamic(() => import("../screens/ContactScreen"), { ssr: false });
 
 export default function Page() {
-  return <ContactScreen/>
+  return <ContactScreen />;
 }

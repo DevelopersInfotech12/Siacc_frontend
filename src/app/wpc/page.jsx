@@ -1,7 +1,8 @@
 "use client";
+import dynamic from "next/dynamic";
 
-import WPCScreen from "../screens/WPCScreen";
+const WPCScreen = dynamic(() => import("../screens/WPCScreen"), { ssr: false });
 
 export default function Page() {
-  return <WPCScreen/>
+  return <WPCScreen />;
 }

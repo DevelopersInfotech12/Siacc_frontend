@@ -1,9 +1,10 @@
 "use client";
+import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 import Image from 'next/image';
 import { useRouter } from "next/navigation";
 import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+const Footer = dynamic(() => import("../Components/Footer"));
 
 const T = {
   teal: "#1E88C8", tealDark: "#074D4D", tealMid: "#0E8080", titleblue: "#0a6daa",

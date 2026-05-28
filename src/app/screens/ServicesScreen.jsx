@@ -1,8 +1,9 @@
 "use client";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import Image from 'next/image';
 import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+const Footer = dynamic(() => import("../Components/Footer"));
 
 const C = {
   primary: "#F97316", primaryDark: "#EA6A0A", primaryLight: "#FFF3E8",
@@ -10,6 +11,7 @@ const C = {
   bodyText: "#374151", mutedText: "#6B7280", border: "#E5E7EB",
   white: "#FFFFFF", offWhite: "#F9FAFB",
   serif: "'Playfair Display', Georgia, serif", sans: "'DM Sans', system-ui, sans-serif",
+  poppins: "'Poppins','system-ui',sans-serif",
 };
 
 const categories = [
@@ -140,7 +142,7 @@ export default function ServicesScreen() {
   const router = useRouter();
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: C.white, fontFamily: C.sans, color: C.bodyText }}>
+    <div style={{ minHeight: "100vh", backgroundColor: C.white, fontFamily: C.poppins, color: C.bodyText }}>
       <style>{`
         * { box-sizing: border-box; }
 
@@ -355,7 +357,7 @@ export default function ServicesScreen() {
                 <span style={{ width: 7, height: 7, borderRadius: "50%", backgroundColor: C.primary, display: "inline-block" }} />
                 <span style={{ color: C.primary, fontSize: 11, fontWeight: 600, letterSpacing: "0.06em" }}>What We Offer</span>
               </div>
-              <h1 style={{ fontFamily: C.serif, fontSize: "clamp(1.75rem,4vw,3.4rem)", color: "#fff", margin: "0 0 20px", fontWeight: 800, lineHeight: 1.15 }}>
+              <h1 style={{ fontFamily: C.poppins, fontSize: "clamp(1.75rem,4vw,3.4rem)", color: "#fff", margin: "0 0 20px", fontWeight: 800, lineHeight: 1.15 }}>
                 9 Certification &<br />Compliance Services
               </h1>
               <p style={{ color: "rgba(255,255,255,0.78)", fontSize: "clamp(14px,1.6vw,16px)", lineHeight: 1.8, maxWidth: 520, marginBottom: 32 }}>
@@ -364,7 +366,7 @@ export default function ServicesScreen() {
               <div className="hero-badges">
                 {categories.map(cat => (
                   <button key={cat.id} onClick={() => router.push(cat.href)}
-                    style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 16px", background: "rgba(255,255,255,0.10)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: 999, color: "#fff", fontSize: 12, fontWeight: 500, cursor: "pointer", fontFamily: C.sans, backdropFilter: "blur(4px)" }}
+                    style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 16px", background: "rgba(255,255,255,0.10)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: 999, color: "#fff", fontSize: 12, fontWeight: 500, cursor: "pointer", fontFamily: C.poppins, backdropFilter: "blur(4px)" }}
                     onMouseEnter={e => { e.currentTarget.style.background = "rgba(249,115,22,0.25)"; e.currentTarget.style.borderColor = "rgba(249,115,22,0.5)"; }}
                     onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.10)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; }}
                   >
@@ -386,11 +388,11 @@ export default function ServicesScreen() {
               ].map((item, i, arr) => (
                 <div key={item.label} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 0", borderBottom: i < arr.length - 1 ? "1px solid rgba(255,255,255,0.1)" : "none" }}>
                   <span style={{ fontSize: 13, color: "rgba(255,255,255,0.6)" }}>{item.label}</span>
-                  <span style={{ fontSize: 15, color: "#fff", fontWeight: 800, fontFamily: C.serif }}>{item.value}</span>
+                  <span style={{ fontSize: 15, color: "#fff", fontWeight: 800, fontFamily: C.poppins }}>{item.value}</span>
                 </div>
               ))}
               <button onClick={() => router.push("/contact")}
-                style={{ width: "100%", marginTop: 24, padding: 13, backgroundColor: C.primary, color: "#fff", fontWeight: 700, borderRadius: 10, border: "none", fontSize: 14, cursor: "pointer", fontFamily: C.sans, boxShadow: "0 4px 12px rgba(249,115,22,0.35)" }}
+                style={{ width: "100%", marginTop: 24, padding: 13, backgroundColor: C.primary, color: "#fff", fontWeight: 700, borderRadius: 10, border: "none", fontSize: 14, cursor: "pointer", fontFamily: C.poppins, boxShadow: "0 4px 12px rgba(249,115,22,0.35)" }}
                 onMouseEnter={e => e.currentTarget.style.backgroundColor = C.primaryDark}
                 onMouseLeave={e => e.currentTarget.style.backgroundColor = C.primary}
               >
@@ -406,7 +408,7 @@ export default function ServicesScreen() {
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 56 }}>
             <span className="section-label">All Services</span>
-            <h2 style={{ fontFamily: C.serif, fontSize: "clamp(1.5rem,3vw,2.4rem)", color: C.navy, fontWeight: 800, marginBottom: 14 }}>Browse by Category</h2>
+            <h2 style={{ fontFamily: C.poppins, fontSize: "clamp(1.5rem,3vw,2.4rem)", color: C.navy, fontWeight: 800, marginBottom: 14 }}>Browse by Category</h2>
             <p style={{ color: C.mutedText, maxWidth: 480, margin: "0 auto", lineHeight: 1.7, fontSize: 15 }}>Click any service to learn more about requirements, process, and timelines.</p>
           </div>
 
@@ -423,14 +425,14 @@ export default function ServicesScreen() {
                     </div>
                     <div>
                       <div style={{ fontSize: 11, fontWeight: 700, color: cat.accentText, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>{cat.subtitle}</div>
-                      <h3 style={{ fontFamily: C.serif, fontSize: "clamp(16px,2vw,21px)", color: C.navy, fontWeight: 800, margin: 0 }}>{cat.title}</h3>
+                      <h3 style={{ fontFamily: C.poppins, fontSize: "clamp(16px,2vw,21px)", color: C.navy, fontWeight: 800, margin: 0 }}>{cat.title}</h3>
                     </div>
                   </div>
 
                   <div className="cat-header-right">
                     <p style={{ fontSize: 13, color: C.mutedText, lineHeight: 1.65, margin: 0, maxWidth: 380 }}>{cat.desc}</p>
                     <button onClick={() => router.push(cat.href)}
-                      style={{ display: "inline-block", padding: "10px 22px", backgroundColor: C.primary, color: C.white, borderRadius: 10, border: "none", fontSize: 13, fontWeight: 700, cursor: "pointer", fontFamily: C.sans, whiteSpace: "nowrap", boxShadow: "0 4px 12px rgba(249,115,22,0.3)" }}
+                      style={{ display: "inline-block", padding: "10px 22px", backgroundColor: C.primary, color: C.white, borderRadius: 10, border: "none", fontSize: 13, fontWeight: 700, cursor: "pointer", fontFamily: C.poppins, whiteSpace: "nowrap", boxShadow: "0 4px 12px rgba(249,115,22,0.3)" }}
                       onMouseEnter={e => e.currentTarget.style.backgroundColor = C.primaryDark}
                       onMouseLeave={e => e.currentTarget.style.backgroundColor = C.primary}
                     >
@@ -463,7 +465,7 @@ export default function ServicesScreen() {
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 52 }}>
             <span className="section-label">How We Work</span>
-            <h2 style={{ fontFamily: C.serif, fontSize: "clamp(1.5rem,3vw,2.4rem)", color: C.navy, fontWeight: 800, marginBottom: 14 }}>Simple 4-Step Process</h2>
+            <h2 style={{ fontFamily: C.poppins, fontSize: "clamp(1.5rem,3vw,2.4rem)", color: C.navy, fontWeight: 800, marginBottom: 14 }}>Simple 4-Step Process</h2>
             <p style={{ color: C.mutedText, maxWidth: 420, margin: "0 auto", lineHeight: 1.7, fontSize: 15 }}>From first enquiry to certificate delivery — we handle everything.</p>
           </div>
 
@@ -472,7 +474,7 @@ export default function ServicesScreen() {
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(12,35,64,0.88) 0%, rgba(12,35,64,0.4) 60%, transparent 100%)" }} />
             <div className="process-banner-text">
               <div>
-                <div style={{ fontFamily: C.serif, fontSize: "clamp(1.1rem,2.5vw,1.8rem)", color: "#fff", fontWeight: 800, marginBottom: 8 }}>Your Certificate. Our Responsibility.</div>
+                <div style={{ fontFamily: C.poppins, fontSize: "clamp(1.1rem,2.5vw,1.8rem)", color: "#fff", fontWeight: 800, marginBottom: 8 }}>Your Certificate. Our Responsibility.</div>
                 <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(12px,1.4vw,14px)", margin: 0 }}>10,000+ certifications delivered across 50+ regulatory frameworks in India.</p>
               </div>
             </div>
@@ -484,7 +486,7 @@ export default function ServicesScreen() {
                 {i < process.length - 1 && <div className="step-connector" />}
                 <div style={{ width: 56, height: 56, margin: "0 auto 16px", borderRadius: 16, backgroundColor: C.primaryLight, border: "2px solid #FED7AA", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24 }}>{p.icon}</div>
                 <div style={{ fontSize: 11, fontWeight: 700, color: C.primary, letterSpacing: "0.1em", marginBottom: 8 }}>STEP {p.step}</div>
-                <h3 style={{ fontFamily: C.serif, fontSize: 17, color: C.navy, marginBottom: 10, fontWeight: 700 }}>{p.title}</h3>
+                <h3 style={{ fontFamily: C.poppins, fontSize: 17, color: C.navy, marginBottom: 10, fontWeight: 700 }}>{p.title}</h3>
                 <p style={{ fontSize: 13, color: C.mutedText, lineHeight: 1.7, margin: 0 }}>{p.desc}</p>
               </div>
             ))}
@@ -497,11 +499,11 @@ export default function ServicesScreen() {
         <Image src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&q=80&fit=crop" alt="CTA" fill style={{ objectFit: "cover" }} unoptimized />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(249,115,22,0.93) 0%, rgba(234,88,12,0.88) 100%)" }} />
         <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
-          <h2 style={{ fontFamily: C.serif, fontSize: "clamp(1.5rem,3vw,2.6rem)", color: "#fff", marginBottom: 16, fontWeight: 800 }}>Not Sure Which Certification You Need?</h2>
+          <h2 style={{ fontFamily: C.poppins, fontSize: "clamp(1.5rem,3vw,2.6rem)", color: "#fff", marginBottom: 16, fontWeight: 800 }}>Not Sure Which Certification You Need?</h2>
           <p style={{ color: "rgba(255,255,255,0.88)", marginBottom: 36, lineHeight: 1.7, fontSize: 15 }}>Talk to our experts for free — we'll tell you exactly what's required for your product.</p>
           <div className="cta-buttons">
             <button onClick={() => router.push("/contact")}
-              style={{ padding: "14px 36px", backgroundColor: "#fff", color: C.primary, fontWeight: 800, borderRadius: 12, border: "none", fontSize: 14, cursor: "pointer", fontFamily: C.sans, boxShadow: "0 6px 20px rgba(0,0,0,0.15)" }}>
+              style={{ padding: "14px 36px", backgroundColor: "#fff", color: C.primary, fontWeight: 800, borderRadius: 12, border: "none", fontSize: 14, cursor: "pointer", fontFamily: C.poppins, boxShadow: "0 6px 20px rgba(0,0,0,0.15)" }}>
               Get Free Consultation
             </button>
             <a href="tel:+919876543210"

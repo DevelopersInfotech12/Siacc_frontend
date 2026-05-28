@@ -1,5 +1,6 @@
+import dynamic from "next/dynamic";
 import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+const Footer = dynamic(() => import("../Components/Footer"));
 
 const C = {
   forest: "#1B4332", forestMid: "#2D6A4F", forestLight: "#40916C",

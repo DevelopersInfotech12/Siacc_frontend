@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 // ─────────────────────────────────────────────────────────────────────────────
 // LMPCScreen.jsx  — Full CDSCO-parity: Benefits, Detailed Steps, Docs, Timeline/Cost/Validity
 // ─────────────────────────────────────────────────────────────────────────────
@@ -5,7 +6,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from 'next/image';
 import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+const Footer = dynamic(() => import("../Components/Footer"));
 
 const T = {
   teal: "#1E88C8", tealDark: "#074D4D", tealMid: "#0E8080", titleblue: "#0a6daa",

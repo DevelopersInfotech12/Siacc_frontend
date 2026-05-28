@@ -1,8 +1,7 @@
-// import AboutScreen from '../../screens/AboutScreen'
+import dynamic from "next/dynamic";
 
-import AboutScreen from "../screens/AboutScreen";
+const AboutScreen = dynamic(() => import("../screens/AboutScreen"), { ssr: false });
 
 export default function Page() {
-  return <AboutScreen/>
+  return <AboutScreen />;
 }
-

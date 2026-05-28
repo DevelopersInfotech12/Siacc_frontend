@@ -2,17 +2,22 @@
 import { useState, useEffect, useRef } from "react";
 import Image from 'next/image';
 import { useRouter } from "next/navigation";
-import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
-import WhyDecisionHome from "../Components/WhyDecisionHome";
-import OurServicesHome from "../Components/OurServicesHome";
-import HeroSlider from "../Components/HeroSlider";
-import HowItWorks from "../Components/HowItWorks";
-import IndustriesWeServe from "../Components/IndustriesWeServe";
-import ClientStories from "../Components/ClientStories";
+import dynamic from "next/dynamic";
 import "../animations.css";
-import WhyChooseUs from "../Components/WhyChooseUs";
-import BlogHome from "../Components/BlogHome";
+
+// Critical above-fold — load immediately
+import Navbar from "../Components/Navbar";
+import HeroSlider from "../Components/HeroSlider";
+
+// Below-fold — lazy loaded
+const Footer = dynamic(() => import("../Components/Footer"));
+const WhyDecisionHome = dynamic(() => import("../Components/WhyDecisionHome"));
+const OurServicesHome = dynamic(() => import("../Components/OurServicesHome"));
+const HowItWorks = dynamic(() => import("../Components/HowItWorks"));
+const IndustriesWeServe = dynamic(() => import("../Components/IndustriesWeServe"));
+const ClientStories = dynamic(() => import("../Components/ClientStories"));
+const WhyChooseUs = dynamic(() => import("../Components/WhyChooseUs"));
+const BlogHome = dynamic(() => import("../Components/BlogHome"));
 
 const T = {
   teal: "#1E88C8",
@@ -242,10 +247,12 @@ export default function HomeScreen() {
           <div className="about-grid">
             <div className="about-img-wrap reveal-left" ref={aboutImgRef}>
               <Image src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=720&q=85&fit=crop"
-  alt="SIACC consultants at work"
-  style={{ width: "100%", height: "clamp(300px,42vw,480px)", objectFit: "cover", borderRadius: 10, boxShadow: "0 24px 64px rgba(0,0,0,0.10)" }}
-  unoptimized
-/>
+                alt="SIACC consultants at work"
+                width={720}
+                height={480}
+                style={{ width: "100%", height: "clamp(300px,42vw,480px)", objectFit: "cover", borderRadius: 10, boxShadow: "0 24px 64px rgba(0,0,0,0.10)" }}
+                unoptimized
+              />
               <div className="float-card" style={{
                 position: "absolute", bottom: -16, right: -12,
                 background: T.white, borderRadius: 8, padding: "20px 26px",

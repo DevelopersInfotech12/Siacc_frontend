@@ -1,7 +1,8 @@
 "use client";
+import dynamic from "next/dynamic";
 
-import TestingScreen from "../screens/TestingScreen";
+const TestingScreen = dynamic(() => import("../screens/TestingScreen"), { ssr: false });
 
 export default function Page() {
-  return <TestingScreen/>
+  return <TestingScreen />;
 }

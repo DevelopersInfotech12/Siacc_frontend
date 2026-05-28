@@ -1,9 +1,10 @@
 "use client";
+import dynamic from "next/dynamic";
 import { useState, useEffect, useRef } from "react";
 import Image from 'next/image';
 import { useRouter } from "next/navigation";
 import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+const Footer = dynamic(() => import("../Components/Footer"));
 import "../animations.css";
 
 const T = {

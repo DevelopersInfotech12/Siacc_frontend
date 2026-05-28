@@ -194,7 +194,7 @@ export default function OurServicesHome() {
       onClick={() => router.push(s.href)}
     >
       <div className="oss-card-img-wrap">
-        <Image src={s.img} alt={s.title} className="oss-card-img" loading="lazy" unoptimized />
+        <Image src={s.img} alt={s.title} className="oss-card-img" width={600} height={400} loading="lazy" unoptimized />
         <div className="oss-img-overlay" />
         <div className="oss-card-shine" />
         <div className="oss-tag" style={{ background: `${s.accent}cc` }}>{s.tag}</div>

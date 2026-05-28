@@ -2,8 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 import Image from 'next/image';
 import { useRouter, useParams } from "next/navigation";
+import dynamic from "next/dynamic";
 import Navbar from "../../Components/Navbar";
-import Footer from "../../Components/Footer";
+const Footer = dynamic(() => import("../../Components/Footer"));
 import "../../animations.css";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";

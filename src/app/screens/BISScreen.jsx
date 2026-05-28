@@ -1,8 +1,9 @@
 "use client";
+import dynamic from "next/dynamic";
 import { useEffect, useRef , useState} from "react";
 import Image from 'next/image';
 import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+const Footer = dynamic(() => import("../Components/Footer"));
 import "../animations.css";
 
 function FaqItem({ faq, index }) {

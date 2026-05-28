@@ -1,5 +1,5 @@
-import HomeScreen from "./screens/HomeScreen";
+import HomeScreenClient from "./HomeScreenClient";
 
 export default function Page() {
-  return <HomeScreen />;
+  return <HomeScreenClient />;
 }

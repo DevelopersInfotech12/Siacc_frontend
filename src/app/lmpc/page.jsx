@@ -1,6 +1,8 @@
 "use client";
-import LMPCScreen from "../screens/LMPCScreen";
+import dynamic from "next/dynamic";
+
+const LMPCScreen = dynamic(() => import("../screens/LMPCScreen"), { ssr: false });
 
 export default function Page() {
-  return <LMPCScreen/>
+  return <LMPCScreen />;
 }
