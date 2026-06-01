@@ -1,8 +1,5 @@
-"use client";
-import dynamic from "next/dynamic";
-
-const ISOScreen = dynamic(() => import("../screens/ISOScreen"), { loading: () => <div style={{minHeight:"100vh",background:"#F7FAF8"}} /> });
-
-export default function Page() {
-  return <ISOScreen />;
-}
+export const metadata = {
+  title: "ISO Certification | Siacc India",
+  alternates: { canonical: "/iso" },
+};
+export { default } from "./PageClient";

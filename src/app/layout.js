@@ -22,6 +22,9 @@ export const metadata = {
     "India's trusted compliance consultancy. BIS, EPR, WPC, TEC, LMPC, BEE, ISO, CDSCO certifications made fast and easy.",
   keywords:
     "BIS certification, EPR registration, WPC approval, TEC MTCTE, LMPC, BEE registration, ISO certification, CDSCO, compliance India",
+  alternates: {
+    canonical: "/", // ADD THIS — each page overrides this
+  },
 };
 
 export default function RootLayout({ children }) {

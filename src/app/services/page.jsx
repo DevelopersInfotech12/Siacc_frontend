@@ -1,8 +1,5 @@
-"use client";
-import dynamic from "next/dynamic";
-
-const ServicesScreen = dynamic(() => import("../screens/ServicesScreen"), { loading: () => <div style={{minHeight:"100vh",background:"#F7FAF8"}} /> });
-
-export default function Page() {
-  return <ServicesScreen />;
-}
+export const metadata = {
+  title: "Our Services | Siacc India",
+  alternates: { canonical: "/services" },
+};
+export { default } from "./PageClient";
