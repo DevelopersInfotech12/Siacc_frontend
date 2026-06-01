@@ -67,9 +67,18 @@ const schemaOrganization = {
   name: "Star India Accreditation",
   url: "https://siacc.co.in",
   logo: "https://siacc.co.in/icon.png",
+  image: "https://siacc.co.in/icon.png", // ADD
   description: "India's trusted compliance and certification consultancy. 12+ years, 10,000+ clients, 0% failure rate.",
   telephone: ["+91-9891229135", "+91-9540190334"],
   email: "starindia.acc@gmail.com",
+  address: {                             // ADD
+    "@type": "PostalAddress",
+    streetAddress: "House No. 211, Ground Floor, Pocket 9",
+    addressLocality: "North West New Delhi",
+    addressRegion: "Delhi",
+    postalCode: "110086",
+    addressCountry: "IN",
+  },
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+91-9891229135",
