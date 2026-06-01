@@ -71,7 +71,7 @@ export const metadata = {
     card: "summary_large_image",
 
     title:
-      "BIS Certification, EPR, WPC, TEC & BEE Consultants in India | SIACC",
+      "SIACC | BIS Certification, EPR, WPC, TEC & BEE Consultants in India",
 
     description:
       "Trusted compliance consultants for BIS Certification, EPR Registration, WPC Approval, TEC MTCTE, BEE, LMPC, ISO and CDSCO services across India.",
