@@ -17,6 +17,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
+    metadataBase: new URL("https://siacc.co.in"), // ADD THIS
   title: "Siacc India | Compliance & Certification Consultants",
   description:
     "India's trusted compliance consultancy. BIS, EPR, WPC, TEC, LMPC, BEE, ISO, CDSCO certifications made fast and easy.",
