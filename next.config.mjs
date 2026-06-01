@@ -1,3 +1,4 @@
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: false,
   images: {
@@ -15,6 +16,14 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // www → non-www
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.siacc.co.in" }],
+        destination: "https://siacc.co.in/:path*",
+        permanent: true,
+      },
+
       // HTTP → HTTPS
       {
         source: "/:path*",
@@ -36,7 +45,7 @@ const nextConfig = {
       { source: "/bis/", destination: "/bis", permanent: true },
       { source: "/tec/", destination: "/tec", permanent: true },
 
-      // Missing trailing slash fixes (from GSC report)
+      // Trailing slash fixes
       { source: "/about-us/", destination: "/about", permanent: true },
       { source: "/our-team/", destination: "/our-team", permanent: true },
       { source: "/contact-us/", destination: "/contact", permanent: true },

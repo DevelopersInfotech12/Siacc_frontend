@@ -1,9 +1,14 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /qr/
+Disallow: /qr-contact/
+Disallow: /review/
+Disallow: /icon.png
 
 # Host
-Host: https://www.siacc.co.in
+Host: https://siacc.co.in
 
 # Sitemaps
-Sitemap: https://www.siacc.co.in/sitemap.xml
+Sitemap: https://siacc.co.in/sitemap.xml
