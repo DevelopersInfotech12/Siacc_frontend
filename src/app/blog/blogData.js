@@ -270,6 +270,157 @@ export const BLOGS = [
       { img: "https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?w=500&q=80&fit=crop", tag: "EPR", tagBg: "#DCFCE7", tagColor: "#166534", date: "February 12, 2025", title: "EPR Compliance for IoT Device Importers — E-Waste Obligations You May Be Missing", slug: null },
     ],
   },
+  {
+    slug: "bis-crs-power-banks-chargers-india-2025",
+    tag: "BIS",
+    date: "May 10, 2025",
+    readTime: "7 min read",
+    featured: false,
+    title: "BIS CRS for Power Banks & Chargers in India: Complete Compliance Guide 2025",
+    excerpt: "Power banks and chargers sold in India must comply with BIS CRS registration under IS 13252. Learn the mandatory standards, testing requirements, registration process, and penalties for non-compliance.",
+    img: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=900&q=80&fit=crop",
+    heroImg: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=1600&q=80&fit=crop",
+    author: "BIS Compliance Team",
+    tagStyle: { bg: "#FEF3DC", text: "#9A5C06" },
+    toc: [
+      { id: "overview", label: "Why CRS is Mandatory" },
+      { id: "standards", label: "Applicable Standards" },
+      { id: "process", label: "Registration Process" },
+      { id: "documents", label: "Documents Required" },
+      { id: "testing", label: "Testing Requirements" },
+      { id: "penalties", label: "Penalties for Non-Compliance" },
+      { id: "timeline", label: "Timeline & Costs" },
+      { id: "faq", label: "Common FAQs" },
+    ],
+    meta: [
+      { label: "Category", value: "BIS" },
+      { label: "Published", value: "May 10, 2025" },
+      { label: "Read Time", value: "7 min read" },
+      { label: "Standard", value: "IS 13252 / IS 16046" },
+    ],
+    sidebarCta: { title: "Get BIS CRS for Power Banks", body: "We handle end-to-end BIS CRS registration for power banks and chargers. Free consultation.", btn: "Start Registration →" },
+    highlights: [
+      "Power banks and chargers are mandatory BIS CRS products — cannot be sold without registration",
+      "Applicable standard: IS 13252 (Part 1) for IT equipment power supplies and IS 16046 for Li-ion batteries",
+      "Both domestic manufacturers and importers must obtain CRS registration",
+      "BIS-empanelled lab testing is mandatory before application",
+      "Penalty for non-compliance: up to ₹2 lakh fine + product seizure",
+      "Factory audit required for domestic manufacturers; quarterly surveillance thereafter",
+    ],
+    ctaTitle: "Need BIS CRS Registration for Power Banks or Chargers?",
+    ctaBody: "SIACC handles complete BIS CRS registration — lab coordination, document preparation, application filing, and liaison with BIS. Fast turnaround. Transparent pricing.",
+    tags: ["BIS", "CRS", "Power Banks", "Chargers", "IS 13252", "IS 16046"],
+    sections: [
+      {
+        id: "overview",
+        heading: "Why BIS CRS Registration is Mandatory for Power Banks & Chargers",
+        content: [
+          { type: "p", text: "The Bureau of Indian Standards (BIS) Compulsory Registration Scheme (CRS) mandates that power banks and chargers sold in India must carry the BIS Standard Mark. This requirement is enforced under the Electronics and Information Technology Goods (Requirements for Compulsory Registration) Order, originally notified by the Ministry of Electronics and Information Technology (MeitY)." },
+          { type: "p", text: "Power banks fall under <strong>IS 16046 (Part 2)</strong> — Secondary lithium cells and batteries for portable applications — and chargers are governed by <strong>IS 13252 (Part 1)</strong> — Safety requirements for IT and audio-video equipment. Both product categories have been under mandatory CRS since 2016 and 2013 respectively." },
+          { type: "callout", text: "<strong>Key rule:</strong> No power bank or charger can be manufactured for sale, stored for sale, sold, imported, or distributed in India without a valid BIS CRS registration number displayed on the product and packaging." },
+        ],
+      },
+      {
+        id: "standards",
+        heading: "Applicable BIS Standards",
+        content: [
+          { type: "p", text: "The two primary standards governing these products are:" },
+          { type: "ul", items: [
+            "<strong>IS 13252 (Part 1):2010/IEC 60950-1:2005</strong> — For chargers and power adapters (IT equipment power supplies). Covers electrical safety, insulation, creepage distances, and thermal requirements.",
+            "<strong>IS 16046 (Part 2):2018/IEC 62133-2:2017</strong> — For lithium-ion/lithium-polymer power banks. Covers electrochemical safety, overcharge protection, short-circuit protection, and mechanical integrity.",
+            "<strong>IS 13252 (Part 2)</strong> may apply to chargers with specific energy efficiency requirements under BEE (Bureau of Energy Efficiency) labelling overlap.",
+          ]},
+          { type: "p", text: "BIS periodically updates the referenced standards. Manufacturers must ensure their products are tested against the currently notified version of the standard at the time of registration." },
+        ],
+      },
+      {
+        id: "process",
+        heading: "BIS CRS Registration Process — Step by Step",
+        content: [
+          { type: "steps", stepItems: [
+            { n: "01", title: "Product Testing at BIS-Empanelled Lab", desc: "Send product samples to a BIS-empanelled testing laboratory. The lab tests against the applicable IS standard and issues a test report.", tip: "Select a lab familiar with IS 16046 or IS 13252 specifically — not all labs are empanelled for both." },
+            { n: "02", title: "Prepare Application Documents", desc: "Compile all required documents: company registration, authorisation letter (for importers), test report, product specifications, and label artwork." },
+            { n: "03", title: "File Application on BIS Online Portal", desc: "Submit the application through the BIS CRS online portal (www.bis.gov.in). Pay the applicable registration fees.", tip: "Importers must have an Indian Authorised Representative (IAR) registered with BIS." },
+            { n: "04", title: "BIS Review & Factory Audit (Domestic Manufacturers)", desc: "BIS reviews the application. For domestic manufacturers, a factory audit is conducted. For importers, the audit happens at the manufacturer's foreign facility or may be waived for certain categories.", tip: "Keep your factory floor organised and QC records updated before the audit date." },
+            { n: "05", title: "Grant of Registration Certificate", desc: "Upon successful review, BIS issues the Registration Certificate with a unique R-number. This must be printed on every unit and its packaging." },
+          ]},
+        ],
+      },
+      {
+        id: "documents",
+        heading: "Documents Required for BIS CRS Application",
+        content: [
+          { type: "ul", items: [
+            "<strong>For importers:</strong> Import Export Code (IEC), company incorporation certificate, authorisation letter from foreign manufacturer, test report from BIS-empanelled lab, product datasheet, label design with R-number placement, Authorised Indian Representative (AIR) details",
+            "<strong>For domestic manufacturers:</strong> Company registration, factory address proof, QC manual, production process overview, test report, label design",
+            "<strong>Common to both:</strong> Product model list, Bill of Materials (BoM) if required by BIS, power bank/charger technical specifications (capacity, input/output voltage, charging protocols)",
+          ]},
+          { type: "callout-warn", text: "<strong>⚠️ Important:</strong> If a power bank supports fast-charging protocols (PD, QC, etc.), ensure the test report explicitly covers these modes. Incomplete test coverage is a common reason for BIS application rejection." },
+        ],
+      },
+      {
+        id: "testing",
+        heading: "Testing Requirements",
+        content: [
+          { type: "p", text: "Testing must be conducted at a BIS-empanelled laboratory. The test report is valid for <strong>12 months</strong> from the date of issue for CRS application purposes. Key tests conducted include:" },
+          { type: "ul", items: [
+            "<strong>Overcharge protection test</strong> — Verifies automatic cutoff above rated voltage",
+            "<strong>Short-circuit protection test</strong> — Tests response to short circuit at output terminals",
+            "<strong>Overdischarge protection</strong> — Ensures cells are not discharged below safe voltage",
+            "<strong>Thermal abuse test</strong> — Exposure to elevated temperatures",
+            "<strong>Mechanical shock and vibration tests</strong>",
+            "<strong>Electrical safety tests</strong> (for chargers): dielectric strength, insulation resistance, leakage current",
+          ]},
+          { type: "p", text: "Samples required for testing are typically <strong>3–5 units per model</strong>. BIS may request additional samples during factory audit or surveillance visits." },
+        ],
+      },
+      {
+        id: "penalties",
+        heading: "Penalties for Non-Compliance",
+        content: [
+          { type: "p", text: "Selling or importing power banks or chargers without BIS CRS registration is a punishable offence under the BIS Act, 2016. Penalties include:" },
+          { type: "ul", items: [
+            "<strong>First offence:</strong> Fine up to ₹2 lakh",
+            "<strong>Repeat offence:</strong> Fine up to ₹5 lakh plus up to 2 years imprisonment",
+            "<strong>Product seizure:</strong> Entire consignment or stock may be seized and destroyed",
+            "<strong>E-commerce liability:</strong> Online marketplaces are required to delist non-compliant products and may be held liable for knowingly listing them",
+          ]},
+          { type: "callout-warn", text: "<strong>BIS enforcement has intensified.</strong> Customs authorities now routinely verify BIS registration numbers at the port of entry for electronics consignments. Products without a valid R-number face detention or return at the importer's cost." },
+        ],
+      },
+      {
+        id: "timeline",
+        heading: "Typical Timeline & Costs",
+        content: [
+          { type: "p", text: "The end-to-end timeline for BIS CRS registration depends on lab availability and BIS processing time:" },
+          { type: "ul", items: [
+            "<strong>Lab testing:</strong> 3–6 weeks (varies by lab queue and standard)",
+            "<strong>Application preparation & filing:</strong> 1–2 weeks",
+            "<strong>BIS review & audit:</strong> 4–8 weeks",
+            "<strong>Total (typical):</strong> 8–16 weeks from sample submission",
+          ]},
+          { type: "p", text: "<strong>Cost components</strong> include lab testing fees (₹30,000–₹80,000 depending on standard and number of tests), BIS registration fees (₹1,000–₹10,000 depending on number of models), and professional service fees if using a consultant." },
+        ],
+      },
+      {
+        id: "faq",
+        heading: "Common FAQs",
+        content: [
+          { type: "h3", text: "Can I sell under one BIS registration for multiple capacity variants?" },
+          { type: "p", text: "No. Each model (defined by rated capacity, chemistry, form factor, and output specifications) requires a separate BIS CRS registration. Minor variants may be grouped if BIS considers them the same model — confirm with BIS before filing." },
+          { type: "h3", text: "Does BIS CRS expire?" },
+          { type: "p", text: "BIS CRS registration does not have a fixed expiry but is subject to annual surveillance. Non-compliance during surveillance can result in cancellation. Manufacturers must also notify BIS of any design changes." },
+          { type: "h3", text: "Is BIS CRS required for power banks sold only online (e-commerce)?" },
+          { type: "p", text: "Yes. BIS CRS is mandatory regardless of the sales channel — offline retail, e-commerce, B2B, or direct import. E-commerce platforms are under active scrutiny to delist non-compliant products." },
+        ],
+      },
+    ],
+    related: [
+      { img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&q=80&fit=crop", tag: "BIS Update", tagBg: "#FEF3DC", tagColor: "#9A5C06", date: "April 20, 2025", title: "BIS Conformity Assessment Amendment Regulations 2026 — What Manufacturers Must Know", slug: "bis-conformity-assessment-amendment-2026" },
+      { img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&q=80&fit=crop", tag: "WPC", tagBg: "#EBF5F5", tagColor: "#074D4D", date: "April 10, 2025", title: "WPC-ETA Approval for IoT Devices: New Requirements Under Saralsanchar Portal", slug: "wpc-eta-iot-devices-saralsanchar" },
+      { img: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=500&q=80&fit=crop", tag: "BIS", tagBg: "#FEF3DC", tagColor: "#9A5C06", date: "March 15, 2025", title: "BIS CRS Registration: Complete Guide for Electronics Importers in 2025", slug: null },
+    ],
+  },
 ];
 
 export function getBlogBySlug(slug) {

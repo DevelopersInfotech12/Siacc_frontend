@@ -3,8 +3,13 @@
 // Handles: SEO metadata, canonical URLs, server-side data fetching, JSON-LD schema
 
 import BlogDetailClient from "./BlogDetailClient";
+import { getBlogBySlug, BLOGS } from "../blogData";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+
+// Allow slugs NOT in generateStaticParams to be rendered on-demand
+// (covers new blog posts added to backend after build, and local blogData fallback)
+export const dynamicParams = true;
 
 // -------------------------------------------------------
 // 1. PRE-RENDER ALL BLOG PAGES AT BUILD TIME
@@ -12,15 +17,19 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 //    Response shape: { success: true, slugs: ["slug-one", "slug-two", ...] }
 // -------------------------------------------------------
 export async function generateStaticParams() {
+  const localSlugs = BLOGS.filter(b => b.slug).map(b => ({ slug: b.slug }));
   try {
     const res = await fetch(`${API_URL}/blogs/public/all-slugs`, {
-      next: { revalidate: 86400 }, // refresh slug list every 24 hours
+      next: { revalidate: 86400 },
     });
     const data = await res.json();
-    return (data.slugs || []).map((slug) => ({ slug }));
+    const apiSlugs = (data.slugs || []).map((slug) => ({ slug }));
+    const all = [...localSlugs, ...apiSlugs];
+    const seen = new Set();
+    return all.filter(({ slug }) => seen.has(slug) ? false : seen.add(slug));
   } catch (err) {
     console.error("[generateStaticParams] Failed to fetch slugs:", err);
-    return [];
+    return localSlugs;
   }
 }
 
@@ -30,8 +39,9 @@ export async function generateStaticParams() {
 //    Open Graph, Twitter Card — all per blog post
 // -------------------------------------------------------
 export async function generateMetadata({ params }) {
+  const { slug } = await params;
   try {
-    const res = await fetch(`${API_URL}/blogs/public/${params.slug}`, {
+    const res = await fetch(`${API_URL}/blogs/public/${slug}`, {
       next: { revalidate: 3600 },
     });
     const data = await res.json();
@@ -43,7 +53,7 @@ export async function generateMetadata({ params }) {
     const blog = data.data;
     const description = blog.metaDescription || blog.excerpt || "";
     const image = blog.heroImg || blog.img || "https://siacc.co.in/og-image.jpg";
-    const url = `https://siacc.co.in/blog/${params.slug}`;
+    const url = `https://siacc.co.in/blog/${slug}`;
 
     return {
       title: `${blog.title} | SIACC`,
@@ -95,22 +105,29 @@ export async function generateMetadata({ params }) {
 //    Googlebot reads full content without needing JavaScript
 // -------------------------------------------------------
 export default async function BlogPage({ params }) {
+  const { slug } = await params;
   let blog = null;
   let notFound = false;
 
   try {
-    const res = await fetch(`${API_URL}/blogs/public/${params.slug}`, {
-      next: { revalidate: 3600 }, // ISR: revalidate page every 1 hour
+    const res = await fetch(`${API_URL}/blogs/public/${slug}`, {
+      next: { revalidate: 3600 },
     });
     const data = await res.json();
 
     if (data.success && data.data) {
       blog = data.data;
-    } else {
-      notFound = true;
     }
   } catch (err) {
     console.error("[BlogPage] Fetch error:", err);
+  }
+
+  // Fall back to local blogData if API returned nothing
+  if (!blog) {
+    blog = getBlogBySlug(slug);
+  }
+
+  if (!blog) {
     notFound = true;
   }
 
@@ -141,7 +158,7 @@ export default async function BlogPage({ params }) {
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": `https://siacc.co.in/blog/${params.slug}`,
+          "@id": `https://siacc.co.in/blog/${slug}`,
         },
       }
     : null;
