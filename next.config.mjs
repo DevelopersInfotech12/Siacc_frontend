@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  trailingSlash: false,
   images: {
     remotePatterns: [
       { protocol: "http", hostname: "localhost", port: "5000" },
@@ -15,26 +16,16 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      {
-        source: "/home-4",
-        destination: "/",
-        permanent: true,
-      },
-      {
-        source: "/about-us",
-        destination: "/about",
-        permanent: true,
-      },
-      {
-        source: "/imei",
-        destination: "/bis-crs",  // IMEI is closest to BIS-CRS registration
-        permanent: true,
-      },
-      {
-        source: "/isi",
-        destination: "/bis-isi",  // Direct match ✅
-        permanent: true,
-      },
+      // Previous 404 fixes
+      { source: "/home-4", destination: "/", permanent: true },
+      { source: "/about-us", destination: "/about", permanent: true },
+      { source: "/imei", destination: "/bis-crs", permanent: true },
+      { source: "/isi", destination: "/bis-isi", permanent: true },
+
+      // Trailing slash fixes
+      { source: "/bee/", destination: "/bee", permanent: true },
+      { source: "/bis/", destination: "/bis", permanent: true },
+      { source: "/tec/", destination: "/tec", permanent: true },
     ];
   },
 };
