@@ -20,7 +20,7 @@ export const metadata = {
   metadataBase: new URL("https://siacc.co.in"),
 
   title:
-    "BIS Certification, EPR, WPC, TEC & BEE Consultants in India | SIACC",
+    "SIACC | BIS Certification, EPR, WPC, TEC & BEE Consultants in India",
 
   description:
     "Trusted compliance consultants for BIS Certification, EPR Registration, WPC Approval, TEC MTCTE, BEE, LMPC, ISO and CDSCO services across India.",
@@ -44,7 +44,7 @@ export const metadata = {
 
   openGraph: {
     title:
-      "BIS Certification, EPR, WPC, TEC & BEE Consultants in India | SIACC",
+      "SIACC |BIS Certification, EPR, WPC, TEC & BEE Consultants in India",
 
     description:
       "Trusted compliance consultants for BIS Certification, EPR Registration, WPC Approval, TEC MTCTE, BEE, LMPC, ISO and CDSCO services across India.",
