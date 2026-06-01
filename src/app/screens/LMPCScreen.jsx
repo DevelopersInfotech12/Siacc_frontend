@@ -1,8 +1,6 @@
-import dynamic from "next/dynamic";
-// ─────────────────────────────────────────────────────────────────────────────
-// LMPCScreen.jsx  — Full CDSCO-parity: Benefits, Detailed Steps, Docs, Timeline/Cost/Validity
-// ─────────────────────────────────────────────────────────────────────────────
 "use client";
+// LMPCScreen.jsx
+import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 import Image from 'next/image';
 import Navbar from "../Components/Navbar";

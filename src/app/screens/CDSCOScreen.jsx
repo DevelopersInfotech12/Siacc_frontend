@@ -1,8 +1,6 @@
-import dynamic from "next/dynamic";
-// ─────────────────────────────────────────────────────────────────────────────
-// CDSCOScreen.jsx  — Full TEC-parity: Benefits, Detailed Steps, Docs, Timeline/Cost/Validity
-// ─────────────────────────────────────────────────────────────────────────────
 "use client";
+// CDSCOScreen.jsx
+import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 import Image from 'next/image';
 import Navbar from "../Components/Navbar";
