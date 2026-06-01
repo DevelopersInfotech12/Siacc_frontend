@@ -13,6 +13,30 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/home-4",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/about-us",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/imei",
+        destination: "/bis-crs",  // IMEI is closest to BIS-CRS registration
+        permanent: true,
+      },
+      {
+        source: "/isi",
+        destination: "/bis-isi",  // Direct match ✅
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
