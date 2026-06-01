@@ -82,19 +82,17 @@ const schemaOrganization = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
-      <body className="font-dm bg-[#F7FAF8] text-[#1A1A2E] antialiased">
-
-        {/* Schema Markup */}
-        <Script
-          id="schema-organization"
+      <head>
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrganization) }}
         />
-        <Script
-          id="schema-localbusiness"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaLocalBusiness) }}
         />
+      </head>
+      <body className="font-dm bg-[#F7FAF8] text-[#1A1A2E] antialiased">
 
         {/* Google Analytics */}
         <Script
