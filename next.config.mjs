@@ -24,19 +24,11 @@ const nextConfig = {
         permanent: true,
       },
 
-      // HTTP → HTTPS
-      {
-        source: "/:path*",
-        has: [{ type: "header", key: "x-forwarded-proto", value: "http" }],
-        destination: "https://siacc.co.in/:path*",
-        permanent: true,
-      },
-
-      // Block junk tracking URLs
+      // Block junk URLs
       { source: "/", has: [{ type: "query", key: "trk" }], destination: "/", permanent: true },
       { source: "/", has: [{ type: "query", key: "page_id" }], destination: "/", permanent: true },
 
-      // Previous fixes
+      // Old URL fixes
       { source: "/home-4", destination: "/", permanent: true },
       { source: "/about-us", destination: "/about", permanent: true },
       { source: "/imei", destination: "/bis-crs", permanent: true },
