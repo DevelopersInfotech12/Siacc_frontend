@@ -18,34 +18,64 @@ const dmSans = DM_Sans({
 
 export const metadata = {
   metadataBase: new URL("https://siacc.co.in"),
-  title: "Siacc India | Compliance & Certification Consultants",
+
+  title:
+    "BIS Certification, EPR, WPC, TEC & BEE Consultants in India | SIACC",
+
   description:
-    "India's trusted compliance consultancy. BIS, EPR, WPC, TEC, LMPC, BEE, ISO, CDSCO certifications made fast and easy.",
-  keywords:
-    "BIS certification, EPR registration, WPC approval, TEC MTCTE, LMPC, BEE registration, ISO certification, CDSCO, compliance India",
+    "Trusted compliance consultants for BIS Certification, EPR Registration, WPC Approval, TEC MTCTE, BEE, LMPC, ISO and CDSCO services across India.",
+
+  keywords: [
+    "BIS Certification",
+    "BIS Consultant India",
+    "EPR Registration",
+    "WPC Approval",
+    "TEC MTCTE",
+    "BEE Registration",
+    "LMPC Certification",
+    "ISO Certification",
+    "CDSCO Registration",
+    "Compliance Consultants India",
+  ],
+
   alternates: {
-    canonical: "/",
+    canonical: "https://siacc.co.in",
   },
+
   openGraph: {
-    title: "Siacc India | Compliance & Certification Consultants",
-    description: "India's trusted compliance consultancy. BIS, EPR, WPC, TEC, LMPC, BEE, ISO, CDSCO certifications made fast and easy.",
+    title:
+      "BIS Certification, EPR, WPC, TEC & BEE Consultants in India | SIACC",
+
+    description:
+      "Trusted compliance consultants for BIS Certification, EPR Registration, WPC Approval, TEC MTCTE, BEE, LMPC, ISO and CDSCO services across India.",
+
     url: "https://siacc.co.in",
-    siteName: "Siacc India",
+
+    siteName: "SIACC India",
+
     locale: "en_IN",
+
     type: "website",
+
     images: [
       {
         url: "https://siacc.co.in/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Star India Accreditation - Compliance & Certification Consultants",
+        alt: "SIACC India - Compliance & Certification Consultants",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Siacc India | Compliance & Certification Consultants",
-    description: "India's trusted compliance consultancy for BIS, EPR, WPC, TEC certifications.",
+
+    title:
+      "BIS Certification, EPR, WPC, TEC & BEE Consultants in India | SIACC",
+
+    description:
+      "Trusted compliance consultants for BIS Certification, EPR Registration, WPC Approval, TEC MTCTE, BEE, LMPC, ISO and CDSCO services across India.",
+
     images: ["https://siacc.co.in/og-image.jpg"],
   },
 };
