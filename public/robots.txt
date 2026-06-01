@@ -6,6 +6,7 @@ Disallow: /qr/
 Disallow: /qr-contact/
 Disallow: /review/
 Disallow: /icon.png
+Disallow: /ai-recommendation
 
 # Host
 Host: https://siacc.co.in

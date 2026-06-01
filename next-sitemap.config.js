@@ -1,15 +1,27 @@
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
-  siteUrl: 'https://siacc.co.in', // remove www
+const config = {
+  siteUrl: 'https://siacc.co.in',
   generateRobotsTxt: true,
+  exclude: [
+    '/admin',
+    '/admin/*',
+    '/qr',
+    '/qr/*',
+    '/qr-contact',
+    '/qr-contact/*',
+    '/review',
+    '/icon.png',
+    '/ai-recommendation',
+  ],
   robotsTxtOptions: {
     policies: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin/', '/qr/', '/qr-contact/', '/review/', '/icon.png'],
+        disallow: ['/admin/', '/qr/', '/qr-contact/', '/review/', '/icon.png', '/ai-recommendation'],
       },
     ],
   },
-  exclude: ['/admin/*', '/qr', '/qr-contact/*', '/review'],
 };
+
+export default config;
