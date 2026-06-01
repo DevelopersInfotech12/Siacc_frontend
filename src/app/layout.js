@@ -33,11 +33,20 @@ export const metadata = {
     siteName: "Siacc India",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "https://siacc.co.in/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Star India Accreditation - Compliance & Certification Consultants",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Siacc India | Compliance & Certification Consultants",
     description: "India's trusted compliance consultancy for BIS, EPR, WPC, TEC certifications.",
+    images: ["https://siacc.co.in/og-image.jpg"],
   },
 };
 
@@ -46,7 +55,7 @@ const schemaLocalBusiness = {
   "@type": "LocalBusiness",
   name: "Star India Accreditation",
   url: "https://siacc.co.in",
-  image: "https://siacc.co.in/icon.png",
+  image: "https://siacc.co.in/og-image.jpg",
   description: "India's trusted compliance and certification consultancy. 12+ years, 10,000+ clients, 0% failure rate.",
   telephone: ["+91-9891229135", "+91-9540190334"],
   email: "starindia.acc@gmail.com",
@@ -67,11 +76,11 @@ const schemaOrganization = {
   name: "Star India Accreditation",
   url: "https://siacc.co.in",
   logo: "https://siacc.co.in/icon.png",
-  image: "https://siacc.co.in/icon.png", // ADD
+  image: "https://siacc.co.in/og-image.jpg",
   description: "India's trusted compliance and certification consultancy. 12+ years, 10,000+ clients, 0% failure rate.",
   telephone: ["+91-9891229135", "+91-9540190334"],
   email: "starindia.acc@gmail.com",
-  address: {                             // ADD
+  address: {
     "@type": "PostalAddress",
     streetAddress: "House No. 211, Ground Floor, Pocket 9",
     addressLocality: "North West New Delhi",
