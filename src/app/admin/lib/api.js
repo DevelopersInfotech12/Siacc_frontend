@@ -70,9 +70,10 @@ export const adminApi = {
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.message || "Upload failed");
-    // Fix: prepend backend URL if path is relative
+    // Fix: prepend backend base (strip /api suffix) if path is relative
+    const backendBase = BASE_URL.replace(/\/api$/, "");
     const url = data.url?.startsWith("/")
-      ? `http://localhost:5000${data.url}`
+      ? `${backendBase}${data.url}`
       : data.url;
     return { ...data, url };
   },

@@ -22,6 +22,7 @@ export default function BlogEditor({ editId, onBack, toast }) {
   const [saving, setSaving] = useState(false);
   const [loading, setLoading] = useState(false);
   const [imgUploading, setImgUploading] = useState(false);
+  const [heroImgUploading, setHeroImgUploading] = useState(false);
   const fileRef = useRef(null);
   const heroFileRef = useRef(null);
   const jsonRef = useRef(null);
@@ -49,15 +50,21 @@ export default function BlogEditor({ editId, onBack, toast }) {
   const handleImg = async (e, field) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    setImgUploading(true);
+    e.target.value = ""; // reset so same file can be re-uploaded
+    const setUploading = field === "heroImg" ? setHeroImgUploading : setImgUploading;
+    setUploading(true);
     try {
       const d = await api.uploadImg(file);
-      set(field, d.url);
+      const url = d.url || d.data?.url;
+      if (!url) throw new Error("No URL returned from upload");
+      set(field, url);
+      // If heroImg was empty or same as img, auto-fill it too
+      if (field === "img" && !form.heroImg) set("heroImg", url);
       toast("success", "Image uploaded");
     } catch (err) {
       toast("error", err.message);
     } finally {
-      setImgUploading(false);
+      setUploading(false);
     }
   };
 
@@ -320,7 +327,10 @@ export default function BlogEditor({ editId, onBack, toast }) {
               {form.heroImg && <Image src={form.heroImg} alt="" height={120} width={900} style={{ width: "100%", height: 120, objectFit: "cover", borderRadius: 8, marginBottom: 10 }} unoptimized />}
               <Input label="Hero Image URL" value={form.heroImg} onChange={(e) => set("heroImg", e.target.value)} placeholder="https://... or /finalimages/..." />
               <input ref={heroFileRef} type="file" accept="image/*" style={{ display: "none" }} onChange={(e) => handleImg(e, "heroImg")} />
-              <Btn variant="ghost" onClick={() => heroFileRef.current?.click()} loading={imgUploading} style={{ width: "100%", justifyContent: "center", fontSize: 12 }}>📤 Upload Hero</Btn>
+              <Btn variant="ghost" onClick={() => heroFileRef.current?.click()} loading={heroImgUploading} style={{ width: "100%", justifyContent: "center", fontSize: 12 }}>📤 Upload Hero</Btn>
+              {form.img && !form.heroImg && (
+                <Btn variant="secondary" onClick={() => set("heroImg", form.img)} style={{ width: "100%", justifyContent: "center", fontSize: 12, marginTop: 6 }}>📋 Copy from Thumbnail</Btn>
+              )}
               <Textarea label="Hero Gradient CSS" value={form.heroGradient} onChange={(e) => set("heroGradient", e.target.value)} style={{ minHeight: 60, fontSize: 11.5 }} />
             </Card>
 

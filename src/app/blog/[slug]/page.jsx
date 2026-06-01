@@ -42,7 +42,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   try {
     const res = await fetch(`${API_URL}/blogs/public/${slug}`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 60 },
     });
     const data = await res.json();
 
@@ -111,7 +111,7 @@ export default async function BlogPage({ params }) {
 
   try {
     const res = await fetch(`${API_URL}/blogs/public/${slug}`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 60 },
     });
     const data = await res.json();
 
