@@ -2,6 +2,8 @@
 const config = {
   siteUrl: 'https://siacc.co.in',
   generateRobotsTxt: true,
+  generateIndexSitemap: false, // ← add this
+  exclude: ['/*'],             // ← exclude everything (robots.txt only)
   exclude: [
     '/admin',
     '/admin/*',
