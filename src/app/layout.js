@@ -19,8 +19,7 @@ const dmSans = DM_Sans({
 export const metadata = {
   metadataBase: new URL("https://siacc.co.in"),
 
-  title:
-    "SIACC | BIS Certification, EPR, WPC, TEC & BEE Consultants in India",
+  title: "SIACC | BIS Certification, EPR, WPC, TEC & BEE Consultants in India",
 
   description:
     "Trusted compliance consultants for BIS Certification, EPR Registration, WPC Approval, TEC MTCTE, BEE, LMPC, ISO and CDSCO services across India.",
@@ -38,25 +37,16 @@ export const metadata = {
     "Compliance Consultants India",
   ],
 
-  alternates: {
-    canonical: "https://siacc.co.in",
-  },
+  // ✅ REMOVED alternates.canonical — let each page set its own
 
   openGraph: {
-    title:
-      "SIACC |BIS Certification, EPR, WPC, TEC & BEE Consultants in India",
-
+    title: "SIACC | BIS Certification, EPR, WPC, TEC & BEE Consultants in India",
     description:
       "Trusted compliance consultants for BIS Certification, EPR Registration, WPC Approval, TEC MTCTE, BEE, LMPC, ISO and CDSCO services across India.",
-
-    url: "https://siacc.co.in",
-
+    // ✅ REMOVED url — homepage sets its own, blog pages set their own
     siteName: "SIACC India",
-
     locale: "en_IN",
-
     type: "website",
-
     images: [
       {
         url: "https://siacc.co.in/og-image.jpg",
@@ -69,13 +59,9 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-
-    title:
-      "SIACC | BIS Certification, EPR, WPC, TEC & BEE Consultants in India",
-
+    title: "SIACC | BIS Certification, EPR, WPC, TEC & BEE Consultants in India",
     description:
       "Trusted compliance consultants for BIS Certification, EPR Registration, WPC Approval, TEC MTCTE, BEE, LMPC, ISO and CDSCO services across India.",
-
     images: ["https://siacc.co.in/og-image.jpg"],
   },
 };
@@ -141,8 +127,6 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="font-dm bg-[#F7FAF8] text-[#1A1A2E] antialiased">
-
-        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-7JR2MZ4Q15"
           strategy="afterInteractive"
@@ -155,7 +139,6 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-7JR2MZ4Q15');
           `}
         </Script>
-
         {children}
         <WhatsAppWidget />
       </body>
