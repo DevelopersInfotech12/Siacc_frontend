@@ -573,7 +573,7 @@ export default function AdminBlogFormScreen({ blogId }) {
                       </label>
                     </div>
                     {form[field] && (
-                      <div style={{ marginTop: 8, width: 120, height: 72, borderRadius: 8, overflow: "hidden", border: `1px solid ${T.border}`, background: "#f5f5f5" }}>
+                      <div style={{ marginTop: 8, position: "relative", width: "100%", height: 160, borderRadius: 8, overflow: "hidden", border: `1px solid ${T.border}`, background: "#f5f5f5" }}>
                         <Image src={form[field]}
   alt="preview"
   fill
