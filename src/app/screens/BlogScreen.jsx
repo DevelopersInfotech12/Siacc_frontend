@@ -259,8 +259,9 @@ export default function BlogScreen() {
                       </div>
                       <div style={{ padding: "20px 22px", flex: 1, display: "flex", flexDirection: "column" }}>
                         <div style={{ fontFamily: T.sans, fontSize: 11, color: T.subtle, marginBottom: 8 }}>{post.date}</div>
-                        <h3 style={{ fontFamily: T.poppins, fontSize: 16, color: T.slate, marginBottom: 8, fontWeight: 600, lineHeight: 1.35, flex: 1 ,  }}>{post.title}</h3>
-                        <p style={{ fontFamily: T.sans, fontSize: 14, color: "#000000b7", lineHeight: 1.7, marginBottom: 14, textAlign: "justify" }}>{post.excerpt}</p>
+                        <h3 style={{ fontFamily: T.poppins, fontSize: 16, color: T.slate, marginBottom: 8, fontWeight: 600, lineHeight: 1.35 }}>{post.title}</h3>
+                        <p style={{ fontFamily: T.poppins, fontSize: 13.5, color: "#000000b7", lineHeight: 1.6, marginBottom: 14, display: "-webkit-box", WebkitLineClamp: 8, WebkitBoxOrient: "vertical", overflow: "hidden", textAlign: "justify" }}>{post.excerpt}</p>
+                        <div style={{ flex: 1 }} />
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 12, borderTop: `1px solid ${T.border}` }}>
                           <span style={{ fontFamily: T.sans, fontSize: 12, color: T.subtle }}>⏱ {post.readTime}</span>
                           <button style={{ fontFamily: T.poppins, fontSize: 12.5, color: T.orange, fontWeight: 600, background: "none", border: "none", cursor: "pointer", letterSpacing: "0.02em" }}>Read More →</button>
