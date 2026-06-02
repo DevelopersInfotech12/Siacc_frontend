@@ -21,18 +21,19 @@ export default async function sitemap() {
 
   let blogPages = [];
   try {
-    const res = await fetch(`${BACKEND}/api/blogs/published`, {
-      next: { revalidate: 86400 },
-    });
-    const data = await res.json();
-    blogPages = (data.data || [])
-      .filter(b => b.slug)
-      .map(b => ({
-        url: `https://siacc.co.in/blog/${b.slug}`,
-        lastModified: new Date(b.updatedAt || b.date || Date.now()),
-        changeFrequency: 'monthly',
-        priority: 0.7,
-      }));
+  const res = await fetch(`${BACKEND}/api/blogs/published`, {
+    next: { revalidate: 86400 },
+    signal: AbortSignal.timeout(5000),
+  });
+  const data = await res.json();
+  blogPages = (data.data || [])
+    .filter(b => b.slug)
+    .map(b => ({
+      url: `https://siacc.co.in/blog/${b.slug}`,
+      lastModified: new Date(b.updatedAt || b.date || Date.now()),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    }));
   } catch (err) {
     console.error('sitemap.js blog fetch failed:', err);
   }
