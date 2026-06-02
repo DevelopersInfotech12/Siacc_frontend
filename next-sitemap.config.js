@@ -32,15 +32,17 @@ const config = {
   additionalPaths: async (config) => {
     const results = [];
     try {
-      const res = await fetch('https://siacc.co.in/api/blogs/public/all-slugs');
+      const res = await fetch('https://siacc-backend.onrender.com/api/blogs/published');
       const data = await res.json();
-      for (const slug of data.slugs || []) {
-        results.push({
-          loc: `/blog/${slug}`,
-          changefreq: 'monthly',
-          priority: 0.7,
-          lastmod: new Date().toISOString(),
-        });
+      for (const blog of data.data || []) {
+        if (blog.slug) {
+          results.push({
+            loc: `/blog/${blog.slug}`,
+            changefreq: 'monthly',
+            priority: 0.7,
+            lastmod: new Date(blog.updatedAt || blog.date || Date.now()).toISOString(),
+          });
+        }
       }
     } catch (err) {
       console.error('Sitemap blog fetch failed:', err);
