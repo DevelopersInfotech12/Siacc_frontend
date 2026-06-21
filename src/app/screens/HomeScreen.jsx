@@ -269,7 +269,7 @@ export default function HomeScreen() {
             <div className="reveal-right" ref={aboutTxtRef}>
               <SectionLabel>About SIACC</SectionLabel>
               <h2 style={{ fontFamily: T.poppins, fontSize: 38, color: T.titleblue, fontWeight: 700, marginBottom: 20, lineHeight: 1.22, letterSpacing: "-0.01em" }}>
-                India's Leading<br />Compliance Consultants
+                Where Compliance <br/>Meets Speed...!!!
               </h2>
               <p style={{ fontFamily: T.poppins, fontWeight: 500, fontSize: 15, color: T.para, lineHeight: 1.9, marginBottom: 14, textAlign: "justify" }}>
                 Star India Accreditation (SIACC) is a trusted name with over 12+ years of experience in BIS, EPR, WPC, TEC, BEE and ISO certifications. We deliver fast, reliable, and cost-effective regulatory approvals for Indian and foreign manufacturers and importers.

@@ -43,7 +43,7 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { name: "Instagram", href: "https://instagram.com/siacc", icon: Instagram },
+  { name: "Instagram", href: "https://www.instagram.com/starindiaaccreditation?utm_source=qr&igsh=ejE2MmJrd2ZqanJ5", icon: Instagram },
   { name: "LinkedIn", href: "https://linkedin.com/company/siacc", icon: Linkedin },
   { name: "Facebook", href: "https://facebook.com/siacc", icon: Facebook },
 ];
